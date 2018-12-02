@@ -35,14 +35,12 @@ public class GlowObject : MonoBehaviour
 	{
 		_targetColor = GlowColor;
 		enabled = true;
-        Debug.Log("Hewwo");
 	}
 
 	private void OnMouseExit()
 	{
 		_targetColor = Color.black;
 		enabled = true;
-        Debug.Log("Goodbye");
     }
 
 	/// <summary>

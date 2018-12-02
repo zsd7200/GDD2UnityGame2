@@ -9,18 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1727223844688022}
+  m_RootGameObject: {fileID: 1188284104978128}
   m_IsPrefabAsset: 1
---- !u!1 &1727223844688022
+--- !u!1 &1188284104978128
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4859711727743782}
-  - component: {fileID: 20034070103717892}
-  - component: {fileID: 114165527785558392}
+  - component: {fileID: 4562053624651760}
+  - component: {fileID: 20500048923541840}
+  - component: {fileID: 114737591059955504}
   m_Layer: 0
   m_Name: GlowPrePassCamera
   m_TagString: Untagged
@@ -28,12 +28,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4859711727743782
+--- !u!4 &4562053624651760
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1727223844688022}
+  m_GameObject: {fileID: 1188284104978128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -41,12 +41,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20034070103717892
+--- !u!20 &20500048923541840
 Camera:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1727223844688022}
+  m_GameObject: {fileID: 1188284104978128}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
@@ -81,12 +81,12 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &114165527785558392
+--- !u!114 &114737591059955504
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1727223844688022}
+  m_GameObject: {fileID: 1188284104978128}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8d6d491c430e2d4ea283009ec2f2794, type: 3}

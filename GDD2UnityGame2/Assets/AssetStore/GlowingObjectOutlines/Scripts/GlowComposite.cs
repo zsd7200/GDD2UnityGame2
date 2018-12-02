@@ -12,7 +12,6 @@ public class GlowComposite : MonoBehaviour
 	void OnEnable()
 	{
 		_compositeMat = new Material(Shader.Find("Hidden/GlowComposite"));
-        Debug.Log(_compositeMat);
     }
 
 	void OnRenderImage(RenderTexture src, RenderTexture dst)
