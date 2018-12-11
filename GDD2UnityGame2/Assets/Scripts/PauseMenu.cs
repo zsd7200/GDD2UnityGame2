@@ -7,8 +7,9 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class PauseMenu : MonoBehaviour
 {
 
-    public GameObject pauseUI;
-    public GameObject fpsController;
+    [SerializeField] GameObject pauseUI;
+    [SerializeField] FirstPersonController fpsController;
+    [SerializeField] DresdenController playerController;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class PauseMenu : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            if (pauseUI.activeSelf == true)
+            if (pauseUI.activeSelf)
                 Resume();
             else
                 Pause();
@@ -28,14 +29,16 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseUI.SetActive(false);
-        fpsController.GetComponent<FirstPersonController>().enabled = true;
+        fpsController.enabled = true;
+        playerController.enabled = true;
         Time.timeScale = 1f;
     }
 
     void Pause()
     {
         pauseUI.SetActive(true);
-        fpsController.GetComponent<FirstPersonController>().enabled = false;
+        fpsController.enabled = false;
+        playerController.enabled = false;
         Time.timeScale = 0f;
     }
 
