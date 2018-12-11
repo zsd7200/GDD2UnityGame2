@@ -8,15 +8,20 @@ public class Crosshair : MonoBehaviour
 
     public RaycastHit hit;
 
+
 	// Update is called once per frame
 	void Update ()
     {
-        //Ray ray = Camera.main.ScreenPointToRay(new Vector3((Screen.width / 2) - (crosshair.width / 2), (Screen.height / 2) - (crosshair.height / 2), 0));
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3((Screen.width / 2) - (crosshair.width / 2), (Screen.height / 2) - (crosshair.height / 2), 0));
 
-        //if (Physics.Raycast(ray, out hit, 10))
-        //{
-        //    Debug.Log("touched book");
-        //}
+
+        if (Physics.Raycast(ray, out hit, 10))
+        {
+            //Debug.Log("touched book");
+            Debug.Log(hit.transform);
+            
+        }
+        //Debug.DrawRay(cameraOrigin, Camera.main.transform.rotation.eulerAngles, Color.red);
     }
 
     // draw crosshair

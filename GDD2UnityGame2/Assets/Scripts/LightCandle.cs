@@ -17,7 +17,7 @@ public class LightCandle : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         LightFlame();
-	}
+    }
 
     void LightFlame()
     {
