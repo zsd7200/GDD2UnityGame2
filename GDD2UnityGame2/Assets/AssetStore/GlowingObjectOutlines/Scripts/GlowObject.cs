@@ -5,6 +5,7 @@ public class GlowObject : MonoBehaviour
 {
 	public Color GlowColor;
 	public float LerpFactor = 10;
+    public bool glowing;
 
     public RaycastHit hit;
 
@@ -27,6 +28,8 @@ public class GlowObject : MonoBehaviour
 
 	void Start()
 	{
+        glowing = false;
+
 		Renderers = GetComponentsInChildren<Renderer>();
 
 		foreach (var renderer in Renderers)
@@ -37,15 +40,16 @@ public class GlowObject : MonoBehaviour
 
 	public void OnGlowEnter()
 	{
-        
         _targetColor = GlowColor;
 		enabled = true;
+        glowing = true;
 	}
 
 	public void OnGlowExit()
 	{
 		_targetColor = Color.black;
 		enabled = true;
+        glowing = false;
     }
 
 	/// <summary>
@@ -69,11 +73,10 @@ public class GlowObject : MonoBehaviour
         //        OnGlowExit();
         //    }
         //}
-        timer++;
-        if(timer > 50)
-        {
+        if (timer < 50)
+            timer++;
+        else
             OnGlowExit();
-        }
 
 
         _currentColor = Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);
