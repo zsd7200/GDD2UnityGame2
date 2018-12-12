@@ -15,7 +15,7 @@ public class Crosshair : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(new Vector3((Screen.width / 2) - (crosshair.width / 2), (Screen.height / 2) - (crosshair.height / 2), 0));
 
 
-        if (Physics.Raycast(ray, out hit, 10))
+        if (Physics.Raycast(ray, out hit, 5))
         {
             //Debug.Log("touched book");
             Debug.Log(hit.transform);
@@ -31,10 +31,14 @@ public class Crosshair : MonoBehaviour
             if (getGlow != null)
             {
                 getGlow.OnGlowEnter();
+                getGlow.timer = 0;
             }
-            else
+
+            LightCandle getLight = null;
+            getLight = hit.transform.GetComponent<LightCandle>();
+            if(getLight != null)
             {
-                getGlow.OnGlowExit();
+                getLight.LightFlame();
             }
 
         }

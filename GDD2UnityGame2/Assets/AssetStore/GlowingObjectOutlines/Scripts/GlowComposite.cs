@@ -5,7 +5,7 @@
 public class GlowComposite : MonoBehaviour
 {
 	[Range (0, 10)]
-	public float Intensity = 2;
+	public float Intensity = 1;
 
 	private Material _compositeMat;
 

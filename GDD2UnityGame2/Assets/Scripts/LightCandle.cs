@@ -16,10 +16,10 @@ public class LightCandle : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        LightFlame();
+        //LightFlame();
     }
 
-    void LightFlame()
+    public void LightFlame()
     {
         if (Input.GetKeyDown(KeyCode.E)) //If the E key is down
         {

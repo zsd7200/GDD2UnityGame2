@@ -8,6 +8,8 @@ public class GlowObject : MonoBehaviour
 
     public RaycastHit hit;
 
+    public int timer = 0;
+
     public Renderer[] Renderers
 	{
 		get;
@@ -67,6 +69,12 @@ public class GlowObject : MonoBehaviour
         //        OnGlowExit();
         //    }
         //}
+        timer++;
+        if(timer > 50)
+        {
+            OnGlowExit();
+        }
+
 
         _currentColor = Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);
 
