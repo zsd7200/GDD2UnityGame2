@@ -183,6 +183,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.67058825, g: 0.29803923, b: 0.015686275, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1 &44369022
 GameObject:
@@ -715,6 +716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0, g: 0.58431375, b: 1, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!65 &142115627
 BoxCollider:
@@ -959,6 +961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.67058825, g: 0.29803923, b: 0.015686275, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1 &190601232 stripped
 GameObject:
@@ -978,6 +981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.004316493, g: 0.6853057, b: 0.9150943, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!65 &190601236
 BoxCollider:
@@ -1320,6 +1324,37 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 928e7f17b21a4c74f9f4d9a232dd204e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!84 &260481395
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 640
+  m_Height: 480
+  m_AntiAliasing: 4
+  m_DepthFormat: 2
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &272242532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.67058825, g: 0.29803923, b: 0.015686275, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1 &317369429
 GameObject:
@@ -1646,37 +1682,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshair: {fileID: 2800000, guid: 2fb438267008f3d47b7f0efab075896e, type: 3}
---- !u!84 &409397679
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 1223
-  m_Height: 399
-  m_AntiAliasing: 4
-  m_DepthFormat: 2
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &456632247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,7 +2040,7 @@ Prefab:
         type: 2}
       propertyPath: m_TargetTexture
       value: 
-      objectReference: {fileID: 753546488}
+      objectReference: {fileID: 260481395}
     - target: {fileID: 20500048923541840, guid: 241f153a2a5e4e34abcc43242f48c12c,
         type: 2}
       propertyPath: field of view
@@ -2148,6 +2153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.67058825, g: 0.29803923, b: 0.015686275, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1 &597678866 stripped
 GameObject:
@@ -3071,37 +3077,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 743704029}
   m_Mesh: {fileID: 4300156, guid: 9eb4d689eea78e54da10689d7d578cef, type: 3}
---- !u!84 &753546488
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 640
-  m_Height: 480
-  m_AntiAliasing: 4
-  m_DepthFormat: 2
-  m_ColorFormat: 7
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &753898722
 Prefab:
   m_ObjectHideFlags: 0
@@ -3714,6 +3689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.67058825, g: 0.29803923, b: 0.015686275, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1 &840537473 stripped
 GameObject:
@@ -3756,6 +3732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.67058825, g: 0.29803923, b: 0.015686275, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1 &845992925
 GameObject:
@@ -4333,7 +4310,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 27
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65075464025798970, guid: a3f12998c533ec34a93e7cbb21c73a55, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: a3f12998c533ec34a93e7cbb21c73a55, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1092693974 stripped
@@ -4554,6 +4532,44 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1106941735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106941732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fa99f15636028c40bb365e27b80120b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1106941736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106941732}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.57975304, y: 0.6747828, z: 0.8431997}
+  m_Center: {x: -0.0067963596, y: 0.23559213, z: -0.029048784}
+--- !u!114 &1106941737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106941732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ec0fb3ff2a5454e8863609a58514d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlowColor: {r: 0, g: 0.58431375, b: 1, a: 0}
+  LerpFactor: 10
+  glowing: 0
+  timer: 0
 --- !u!1 &1140185265 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 37129b55b0dbbce4c94f09c44f686c66,
@@ -5115,6 +5131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.6698113, g: 0.29774675, b: 0.015797434, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1001 &1306967896
 Prefab:
@@ -5775,6 +5792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.6320754, g: 0.22966893, b: 0, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1001 &1471839037
 Prefab:
@@ -6067,6 +6085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.67058825, g: 0.29803923, b: 0.015686275, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1001 &1522473088
 Prefab:
@@ -6680,6 +6699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.67058825, g: 0.29803923, b: 0.015686275, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1 &1648959174 stripped
 GameObject:
@@ -7122,6 +7142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.67058825, g: 0.29803923, b: 0.015686275, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1001 &1873002374
 Prefab:
@@ -7455,6 +7476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0, g: 0, b: 0, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1 &1918021713
 GameObject:
@@ -8329,6 +8351,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.40000004, y: 5.999998, z: 6.9999995}
   m_Center: {x: 0.2000001, y: 2.9999986, z: 3.5000002}
+--- !u!1 &2074635616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1502392459374762, guid: a3f12998c533ec34a93e7cbb21c73a55,
+    type: 2}
+  m_PrefabInternal: {fileID: 1086667751}
+--- !u!65 &2074635618
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2074635616}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2082752697 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1507473793353128, guid: 504734b234267184a82f53a6f9f390db,
@@ -8370,6 +8409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GlowColor: {r: 0.67058825, g: 0.29803923, b: 0.015686275, a: 0}
   LerpFactor: 10
+  glowing: 0
   timer: 0
 --- !u!1 &2090215430
 GameObject:
