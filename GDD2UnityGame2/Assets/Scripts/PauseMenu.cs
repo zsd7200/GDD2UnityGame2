@@ -8,11 +8,14 @@ public class PauseMenu : MonoBehaviour
 {
 
     [SerializeField] GameObject pauseUI;
-    [SerializeField] FirstPersonController fpsController;
-    [SerializeField] DresdenController playerController;
+    [SerializeField] GameObject player;
+    FirstPersonController fpsController;
+    DresdenController playerController;
 
     private void Start()
     {
+        fpsController = player.GetComponent<FirstPersonController>();
+        playerController = player.GetComponent<DresdenController>();
         //Cursor.lockState = CursorLockMode.Confined;
     }
 

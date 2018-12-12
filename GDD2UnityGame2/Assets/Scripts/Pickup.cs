@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PickupType { Scroll, Dragon, Photo}
+public enum PickupType { Generic, Scroll, Dragon, Photo}
 public class Pickup : MonoBehaviour {
     public PickupType type;
 }

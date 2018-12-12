@@ -10,7 +10,7 @@ public class DresdenController : MonoBehaviour
     //Reference items
     const KeyCode FlickumKey = KeyCode.E;
     const KeyCode MagicKey = KeyCode.F;
-    public const float interactDist = 5f; //Maximum pickup distance
+    public const float interactDist = 3f; //Maximum pickup distance
     [SerializeField] Texture2D crosshair; // crosshair image
 
     //Variables
@@ -29,7 +29,7 @@ public class DresdenController : MonoBehaviour
 
         //Checks for interactions
         Ray ray = Camera.main.ScreenPointToRay(new Vector3((Screen.width / 2) - (crosshair.width / 2), (Screen.height / 2) - (crosshair.height / 2), 0));
-        if (Physics.Raycast(ray, out hit, 5))
+        if (Physics.Raycast(ray, out hit, interactDist))
         {
             Debug.Log(hit.transform);
             
@@ -40,14 +40,23 @@ public class DresdenController : MonoBehaviour
                 getGlow.timer = 0;
             }
 
-            if(handAction == HandAction.Free && Input.GetMouseButtonDown(0)) //Left-clicking on object
+            if(Input.GetMouseButtonDown(0)) //Left-clicking on object
             {
-                if(hit.transform.GetComponent<Pickup>() != null) //Item can be picked up
+                if (hit.transform.GetComponent<Pickup>() != null) //Item can be picked up
                 {
+                    if(handAction == HandAction.HoldObject) //Swaps currently held object
+                    {
+                        held.transform.parent = null;
+                        held.transform.position = hit.transform.position;
+                    }
                     held = hit.transform.gameObject;
+
+                    held.transform.position = transform.position + new Vector3(Mathf.Cos(Mathf.Deg2Rad * (transform.rotation.eulerAngles.y - 5)), transform.position.y + 1.76f, Mathf.Sin(Mathf.Deg2Rad * (transform.rotation.eulerAngles.y - 5)));
+                    held.transform.parent = transform;
+
                     handAction = HandAction.HoldObject;
                 }
-                if (false) //placeholder for puzzles
+                if (handAction == HandAction.Free && false) //placeholder for puzzles
                 {
 
                 }
@@ -63,7 +72,13 @@ public class DresdenController : MonoBehaviour
         if (handAction == HandAction.HoldObject)
         {
             if (held == null) handAction = HandAction.Free; //Failsafe
-            else held.transform.position = transform.position + new Vector3(Mathf.Cos(transform.rotation.eulerAngles.y),transform.position.y, Mathf.Sin(transform.rotation.eulerAngles.y));
+            if (Input.GetMouseButtonDown(1))
+            {
+                held.transform.parent = null;
+                held.transform.position = new Vector3(held.transform.position.x, 0, held.transform.position.z);
+                held = null;
+                handAction = HandAction.Free;
+            }
         }
 	}
 
