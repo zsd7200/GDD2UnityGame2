@@ -19,12 +19,24 @@ public class Crosshair : MonoBehaviour
         {
             //Debug.Log("touched book");
             Debug.Log(hit.transform);
+            //GlowObject getGlow = null;
+            //getGlow = hit.transform.GetComponent<GlowObject>();
+            //if(getGlow != null)
+            //{
+            //    hit.transform.GetComponent<GlowObject>().enabled = true;
+            //}
+
             GlowObject getGlow = null;
             getGlow = hit.transform.GetComponent<GlowObject>();
-            if(getGlow != null)
+            if (getGlow != null)
             {
-                hit.transform.GetComponent<GlowObject>().enabled = true;
+                getGlow.OnGlowEnter();
             }
+            else
+            {
+                getGlow.OnGlowExit();
+            }
+
         }
         //Debug.DrawRay(cameraOrigin, Camera.main.transform.rotation.eulerAngles, Color.red);
     }

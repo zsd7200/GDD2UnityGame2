@@ -6,7 +6,9 @@ public class GlowObject : MonoBehaviour
 	public Color GlowColor;
 	public float LerpFactor = 10;
 
-	public Renderer[] Renderers
+    public RaycastHit hit;
+
+    public Renderer[] Renderers
 	{
 		get;
 		private set;
@@ -31,13 +33,14 @@ public class GlowObject : MonoBehaviour
 		}
 	}
 
-	private void OnMouseEnter()
+	public void OnGlowEnter()
 	{
-		_targetColor = GlowColor;
+        
+        _targetColor = GlowColor;
 		enabled = true;
 	}
 
-	private void OnMouseExit()
+	public void OnGlowExit()
 	{
 		_targetColor = Color.black;
 		enabled = true;
@@ -48,7 +51,24 @@ public class GlowObject : MonoBehaviour
 	/// </summary>
 	private void Update()
 	{
-		_currentColor = Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);
+        //ray check objects hit for GlowObject
+        //Ray ray = Camera.main.ScreenPointToRay(new Vector3((Screen.width / 2), (Screen.height / 2), 0));
+        //
+        //if (Physics.Raycast(ray, out hit, 10))
+        //{   
+        //    GlowObject getGlow = null;
+        //    getGlow = hit.transform.GetComponent<GlowObject>();
+        //    if (getGlow != null)
+        //    {
+        //        OnGlowEnter();
+        //    }
+        //    else
+        //    {
+        //        OnGlowExit();
+        //    }
+        //}
+
+        _currentColor = Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);
 
 		for (int i = 0; i < _materials.Count; i++)
 		{
