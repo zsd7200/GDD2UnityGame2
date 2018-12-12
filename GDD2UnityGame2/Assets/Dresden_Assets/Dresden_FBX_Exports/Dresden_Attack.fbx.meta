@@ -1,0 +1,221 @@
+fileFormatVersion: 2
+guid: 8d37e78837f87e34fbf3f70d2c28284a
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: ChestJT
+    100002: //RootNode
+    100004: dresdenModel
+    100006: HairJT
+    100008: HeadJT
+    100010: JawJT
+    100012: L_AnkleJT
+    100014: L_BallJT
+    100016: L_ClavicleJT
+    100018: L_ElbowJT
+    100020: L_EyeJT
+    100022: L_HipJT
+    100024: L_IndexJT1
+    100026: L_IndexJT2
+    100028: L_IndexJT3
+    100030: L_KneeJT
+    100032: L_MiddleJT1
+    100034: L_MiddleJT2
+    100036: L_MiddleJT3
+    100038: L_PinkieJT1
+    100040: L_PinkieJT2
+    100042: L_PinkieJT3
+    100044: L_RingJT2
+    100046: L_RingJT3
+    100048: L_RingJT4
+    100050: L_ShoulderJT
+    100052: L_ThumbJT1
+    100054: L_ThumbJT2
+    100056: L_ThumbJT3
+    100058: L_ToeJT
+    100060: L_WristJT
+    100062: NeckJT
+    100064: PelvisJT
+    100066: R_AnkleJT
+    100068: R_BallJT
+    100070: R_ClavicleJT
+    100072: R_ElbowJT
+    100074: R_EyeJT
+    100076: R_HipJT
+    100078: R_IndexJT1
+    100080: R_IndexJT2
+    100082: R_IndexJT3
+    100084: R_KneeJT
+    100086: R_MiddleJT1
+    100088: R_MiddleJT2
+    100090: R_MiddleJT3
+    100092: R_PinkieJT1
+    100094: R_PinkieJT2
+    100096: R_PinkieJT3
+    100098: R_RingJT2
+    100100: R_RingJT3
+    100102: R_RingJT4
+    100104: R_ShoulderJT
+    100106: R_ThumbJT1
+    100108: R_ThumbJT2
+    100110: R_ThumbJT3
+    100112: R_ToeJT
+    100114: R_WristJT
+    100116: rigGRP
+    100118: RootJT
+    100120: SpineJT1
+    100122: SpineJT2
+    100124: SpineJT3
+    400000: ChestJT
+    400002: //RootNode
+    400004: dresdenModel
+    400006: HairJT
+    400008: HeadJT
+    400010: JawJT
+    400012: L_AnkleJT
+    400014: L_BallJT
+    400016: L_ClavicleJT
+    400018: L_ElbowJT
+    400020: L_EyeJT
+    400022: L_HipJT
+    400024: L_IndexJT1
+    400026: L_IndexJT2
+    400028: L_IndexJT3
+    400030: L_KneeJT
+    400032: L_MiddleJT1
+    400034: L_MiddleJT2
+    400036: L_MiddleJT3
+    400038: L_PinkieJT1
+    400040: L_PinkieJT2
+    400042: L_PinkieJT3
+    400044: L_RingJT2
+    400046: L_RingJT3
+    400048: L_RingJT4
+    400050: L_ShoulderJT
+    400052: L_ThumbJT1
+    400054: L_ThumbJT2
+    400056: L_ThumbJT3
+    400058: L_ToeJT
+    400060: L_WristJT
+    400062: NeckJT
+    400064: PelvisJT
+    400066: R_AnkleJT
+    400068: R_BallJT
+    400070: R_ClavicleJT
+    400072: R_ElbowJT
+    400074: R_EyeJT
+    400076: R_HipJT
+    400078: R_IndexJT1
+    400080: R_IndexJT2
+    400082: R_IndexJT3
+    400084: R_KneeJT
+    400086: R_MiddleJT1
+    400088: R_MiddleJT2
+    400090: R_MiddleJT3
+    400092: R_PinkieJT1
+    400094: R_PinkieJT2
+    400096: R_PinkieJT3
+    400098: R_RingJT2
+    400100: R_RingJT3
+    400102: R_RingJT4
+    400104: R_ShoulderJT
+    400106: R_ThumbJT1
+    400108: R_ThumbJT2
+    400110: R_ThumbJT3
+    400112: R_ToeJT
+    400114: R_WristJT
+    400116: rigGRP
+    400118: RootJT
+    400120: SpineJT1
+    400122: SpineJT2
+    400124: SpineJT3
+    2100000: aiClothes
+    2100002: aiHair
+    2100004: skin
+    4300000: dresdenModel
+    7400000: Dresden_Attack
+    9500000: //RootNode
+    13700000: dresdenModel
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
