@@ -9,7 +9,8 @@ public class GlowObject : MonoBehaviour
 
     public RaycastHit hit;
 
-    public int timer = 0;
+    public float timer = 0;
+    float waitTime = 0.15f;
 
     public Renderer[] Renderers
 	{
@@ -52,6 +53,14 @@ public class GlowObject : MonoBehaviour
         glowing = false;
     }
 
+
+    public void DisableGlow()
+    {
+        glowing = false;
+        enabled = false;
+    }
+
+
 	/// <summary>
 	/// Loop over all cached materials and update their color, disable self if we reach our target color.
 	/// </summary>
@@ -73,22 +82,43 @@ public class GlowObject : MonoBehaviour
         //        OnGlowExit();
         //    }
         //}
-        if (timer < 50)
-            timer++;
-        else
-            OnGlowExit();
+        //if (timer < 50)
+        //    timer++;
+        //else
+        //    OnGlowExit();
 
 
-        _currentColor = Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);
+        if(true) //Puzzle is not solved
+        {
+            timer += Time.deltaTime;
+            if (timer >= waitTime)
+            {
+                OnGlowExit();
+                timer = 0.0f;
+            }
 
-		for (int i = 0; i < _materials.Count; i++)
-		{
-			_materials[i].SetColor("_GlowColor", _currentColor);
-		}
 
-		if (_currentColor.Equals(_targetColor))
-		{
-			enabled = false;
-		}
+            _currentColor = Color.Lerp(_currentColor, _targetColor, Time.deltaTime * LerpFactor);
+
+            for (int i = 0; i < _materials.Count; i++)
+            {
+                _materials[i].SetColor("_GlowColor", _currentColor);
+            }
+
+            if (_currentColor.Equals(_targetColor))
+            {
+                enabled = false;
+            }
+
+        }
+        else //Puzzle has been solved
+        {
+            DisableGlow();
+        }
+
+       
+    
+
+
 	}
 }
