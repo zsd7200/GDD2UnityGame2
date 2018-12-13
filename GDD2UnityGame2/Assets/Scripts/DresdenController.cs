@@ -56,12 +56,15 @@ public class DresdenController : MonoBehaviour
 
                     handAction = HandAction.HoldObject;
                 }
-                if (handAction == HandAction.Free && false) //placeholder for puzzles
-                {
 
-                }
+                Popup popupItem = hit.transform.GetComponent<Popup>();
+                if (handAction == HandAction.Free && popupItem != null) popupItem.DrawPopup();
             }
-
+            if (Input.GetKeyDown(MagicKey))//Use magic
+            {
+                MagicTarget MagicItem = hit.transform.GetComponent<MagicTarget>();
+                if (MagicItem != null) MagicItem.Activate();
+            }
             if (Input.GetKeyDown(FlickumKey)){ //Light stuff on fire
                 LightCandle getLight = hit.transform.GetComponent<LightCandle>();
                 if (getLight != null) getLight.LightFlame();
