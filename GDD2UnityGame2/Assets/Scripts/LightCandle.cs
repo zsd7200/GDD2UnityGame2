@@ -4,14 +4,9 @@ using UnityEngine;
 
 public class LightCandle : MonoBehaviour {
 
-    GameObject child;
-    GameObject thisObject;
-
 	// Use this for initialization
 	void Start () {
-        thisObject = this.gameObject; //Current Object
-        child = thisObject.gameObject.transform.GetChild(0).gameObject; //Child of object
-        child.SetActive(false); //Extinguish flame
+        transform.GetChild(0).gameObject.SetActive(false); //Extinguish flame
 	}
 	
 	// Update is called once per frame
@@ -21,10 +16,9 @@ public class LightCandle : MonoBehaviour {
 
     public void LightFlame()
     {
-        if (Input.GetKeyDown(KeyCode.E)) //If the E key is down
-        {
-            child.SetActive(true); //Light the Flame
-        }
+        transform.GetChild(0).gameObject.SetActive(true);
+        if(transform.gameObject.GetComponent<Pickup>() == null) PuzzleManager.litCandles++; //Increments candle counter only if it's a static candle (aka not the dragon statue)
+        this.enabled = false; //Prevents lighting a lit candle
     }
 
 }

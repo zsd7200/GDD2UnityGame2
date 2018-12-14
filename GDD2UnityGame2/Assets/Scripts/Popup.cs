@@ -28,4 +28,9 @@ public class Popup : MonoBehaviour
                 return;
         }
     }
+
+    private void Start()
+    {
+        if (false) enabled = false; //Referencing enabled makes it appear in the inspector, so we can pick which ones are active at first
+    }
 }

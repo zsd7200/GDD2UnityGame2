@@ -17,6 +17,15 @@ public class DresdenController : MonoBehaviour
     HandAction handAction;
     GameObject held = null;
     [SerializeField] RaycastHit hit;
+    
+    public bool IsHolding(PickupType item)
+    {
+        return handAction == HandAction.HoldObject && held.GetComponent<Pickup>().type == item;
+    }
+    public GameObject HeldItem
+    {
+        get { return held; }
+    }
 
     // Use this for initialization
     void Start () {
@@ -34,7 +43,7 @@ public class DresdenController : MonoBehaviour
             Debug.Log(hit.transform);
             
             GlowObject getGlow = hit.transform.GetComponent<GlowObject>();
-            if (getGlow != null)
+            if (getGlow != null && getGlow.enabled)
             {
                 getGlow.OnGlowEnter();
                 getGlow.timer = 0;
@@ -58,16 +67,16 @@ public class DresdenController : MonoBehaviour
                 }
 
                 Popup popupItem = hit.transform.GetComponent<Popup>();
-                if (handAction == HandAction.Free && popupItem != null) popupItem.DrawPopup();
+                if (handAction == HandAction.Free && popupItem != null && popupItem.enabled) popupItem.DrawPopup();
             }
             if (Input.GetKeyDown(MagicKey))//Use magic
             {
                 MagicTarget MagicItem = hit.transform.GetComponent<MagicTarget>();
-                if (MagicItem != null) MagicItem.Activate();
+                if (MagicItem != null && MagicItem.enabled) MagicItem.Activate();
             }
             if (Input.GetKeyDown(FlickumKey)){ //Light stuff on fire
                 LightCandle getLight = hit.transform.GetComponent<LightCandle>();
-                if (getLight != null) getLight.LightFlame();
+                if (getLight != null && getLight.enabled) getLight.LightFlame();
             }
         }
 
