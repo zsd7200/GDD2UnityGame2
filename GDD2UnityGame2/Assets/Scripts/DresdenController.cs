@@ -43,7 +43,7 @@ public class DresdenController : MonoBehaviour
             Debug.Log(hit.transform);
             
             GlowObject getGlow = hit.transform.GetComponent<GlowObject>();
-            if (getGlow != null && getGlow.enabled)
+            if (getGlow != null)
             {
                 getGlow.OnGlowEnter();
                 getGlow.timer = 0;
