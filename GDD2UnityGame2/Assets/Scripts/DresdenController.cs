@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public enum HandAction { Free, HoldObject}
+public enum HandAction { Free, HoldObject, FlickumBicus}
 public class DresdenController : MonoBehaviour
 {
     public static Transform Dresden;
@@ -12,6 +12,7 @@ public class DresdenController : MonoBehaviour
     const KeyCode MagicKey = KeyCode.F;
     public const float interactDist = 5f; //Maximum pickup distance
     [SerializeField] Texture2D crosshair; // crosshair image
+    [SerializeField] GameObject selfLight;
 
     //Variables
     HandAction handAction;
@@ -38,7 +39,7 @@ public class DresdenController : MonoBehaviour
 
         //Checks for interactions
         Ray ray = Camera.main.ScreenPointToRay(new Vector3((Screen.width / 2) - (crosshair.width / 2), (Screen.height / 2) - (crosshair.height / 2), 0));
-        Debug.Log(ray);
+        //Debug.Log(ray);
         if (Physics.Raycast(ray, out hit, interactDist) && hit.transform.gameObject != gameObject)
         {
             Debug.Log(hit.transform);
@@ -75,13 +76,27 @@ public class DresdenController : MonoBehaviour
                 MagicTarget MagicItem = hit.transform.GetComponent<MagicTarget>();
                 if (MagicItem != null && MagicItem.enabled) MagicItem.Activate();
             }
-            if (Input.GetKeyDown(FlickumKey)){ //Light stuff on fire
+            if (handAction != HandAction.FlickumBicus && Input.GetKeyDown(FlickumKey)){ //Light stuff on fire
                 LightCandle getLight = hit.transform.GetComponent<LightCandle>();
                 if (getLight != null && getLight.enabled) getLight.LightFlame();
             }
         }
 
         //Other updates
+        else if(Input.GetKeyDown(FlickumKey))
+        {
+            if(handAction == HandAction.Free)
+            {
+                selfLight.SetActive(true);
+                handAction = HandAction.FlickumBicus;
+            }
+            if(handAction == HandAction.FlickumBicus)
+            {
+                selfLight.SetActive(false);
+                handAction = HandAction.Free;
+            }
+        }
+
         if (handAction == HandAction.HoldObject)
         {
             if (held == null) handAction = HandAction.Free; //Failsafe
