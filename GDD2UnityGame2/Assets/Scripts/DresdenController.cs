@@ -10,7 +10,7 @@ public class DresdenController : MonoBehaviour
     //Reference items
     const KeyCode FlickumKey = KeyCode.E;
     const KeyCode MagicKey = KeyCode.F;
-    public const float interactDist = 4f; //Maximum pickup distance
+    public const float interactDist = 5f; //Maximum pickup distance
     [SerializeField] Texture2D crosshair; // crosshair image
 
     //Variables
@@ -38,6 +38,7 @@ public class DresdenController : MonoBehaviour
 
         //Checks for interactions
         Ray ray = Camera.main.ScreenPointToRay(new Vector3((Screen.width / 2) - (crosshair.width / 2), (Screen.height / 2) - (crosshair.height / 2), 0));
+        Debug.Log(ray);
         if (Physics.Raycast(ray, out hit, interactDist) && hit.transform.gameObject != gameObject)
         {
             Debug.Log(hit.transform);
