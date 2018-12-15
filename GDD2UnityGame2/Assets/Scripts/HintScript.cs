@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityStandardAssets.Characters.FirstPerson;
 
-public class PauseMenu : MonoBehaviour
+public class HintScript : MonoBehaviour
 {
 
-    [SerializeField] GameObject pauseUI;
+    [SerializeField] GameObject noteUI;
     [SerializeField] GameObject player;
-    public GameObject noteUI;
+    public GameObject note;
+    public GameObject pauseUI;
     FirstPersonController fpsController;
     DresdenController playerController;
 
@@ -17,14 +18,13 @@ public class PauseMenu : MonoBehaviour
     {
         fpsController = player.GetComponent<FirstPersonController>();
         playerController = player.GetComponent<DresdenController>();
-        //Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf == false)
-            if (pauseUI.activeSelf)
+        if (Input.GetKeyDown(KeyCode.E) && note.GetComponent<GlowObject>().glowing == true && pauseUI.activeSelf == false)
+            if (noteUI.activeSelf)
                 Resume();
             else
                 Pause();
@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
-        pauseUI.SetActive(false);
+        noteUI.SetActive(false);
         fpsController.enabled = true;
         playerController.enabled = true;
         Time.timeScale = 1f;
@@ -40,26 +40,9 @@ public class PauseMenu : MonoBehaviour
 
     void Pause()
     {
-        pauseUI.SetActive(true);
+        noteUI.SetActive(true);
         fpsController.enabled = false;
         playerController.enabled = false;
         Time.timeScale = 0f;
-    }
-
-    public void Restart()
-    {
-        Resume();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void Menu()
-    {
-        Resume();
-        SceneManager.LoadScene("Menu");
-    }
-
-    public void Exit()
-    {
-        Application.Quit();
     }
 }
