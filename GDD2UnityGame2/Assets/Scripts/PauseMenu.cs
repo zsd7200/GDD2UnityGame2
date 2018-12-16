@@ -54,17 +54,23 @@ public class PauseMenu : MonoBehaviour
                     Pause(pauseAfterNoteUI);
             
             // if q is pressed, open note
-            if (Input.GetKeyDown(KeyCode.Q) && pauseUI.activeSelf == false)
+            if (Input.GetKeyDown(KeyCode.Q))
                 if (noteUI.activeSelf)
                     Resume(noteUI);
                 else
                     Pause(noteUI);
         }
 
+        // key to quit game
+        if (Input.GetKeyDown(KeyCode.X) && (pauseUI.activeSelf == true || pauseAfterNoteUI.activeSelf == true))
+            Application.Quit();
+
     }
 
     public void Resume(GameObject ui)
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         ui.SetActive(false);
         fpsController.enabled = true;
         playerController.enabled = true;
@@ -73,6 +79,8 @@ public class PauseMenu : MonoBehaviour
 
     void Pause(GameObject ui)
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         ui.SetActive(true);
         fpsController.enabled = false;
         playerController.enabled = false;
