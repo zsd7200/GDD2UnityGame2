@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TargetType { Fuego, Ventiferro, Lumen, Dispertius, Resarcius, Door }
+public enum TargetType { Fuego, Ventiferro, Lumen, Dispertius, Resarcius, Solvos }
 public class MagicTarget : MonoBehaviour
 {
     public TargetType type;
@@ -19,7 +19,8 @@ public class MagicTarget : MonoBehaviour
                 reference1.SetActive(true);
                 break;
             case (TargetType.Ventiferro):
-
+                gameObject.GetComponent<Popup>().enabled = true;
+                gameObject.GetComponent<Popup>().DrawPopup();
                 break;
             case (TargetType.Lumen):
                 if(dresden.IsHolding(PickupType.Photo)) //Dresden is holding photo
@@ -35,7 +36,7 @@ public class MagicTarget : MonoBehaviour
                 reference1.SetActive(true);
                 gameObject.SetActive(false);
                 break;
-            case (TargetType.Door):
+            case (TargetType.Solvos):
                 if (PuzzleManager.artifactCount == 5) gameObject.GetComponent<Popup>().enabled = true;
                 break;
         }

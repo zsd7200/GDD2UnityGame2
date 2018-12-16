@@ -8,22 +8,21 @@ public class PauseMenu : MonoBehaviour
 {
 
     [SerializeField] GameObject pauseUI;
-    [SerializeField] GameObject player;
     public GameObject noteUI;
     FirstPersonController fpsController;
     DresdenController playerController;
 
     private void Start()
     {
-        fpsController = player.GetComponent<FirstPersonController>();
-        playerController = player.GetComponent<DresdenController>();
+        fpsController = DresdenController.Dresden.GetComponent<FirstPersonController>();
+        playerController = DresdenController.Dresden.GetComponent<DresdenController>();
         //Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf == false)
+        if (!Popup.popupOn && !noteUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
             if (pauseUI.activeSelf)
                 Resume();
             else
