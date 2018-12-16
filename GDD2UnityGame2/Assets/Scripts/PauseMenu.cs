@@ -7,6 +7,7 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class PauseMenu : MonoBehaviour
 {
 
+    [SerializeField] GameObject player;
     [SerializeField] GameObject pauseUI;
     public GameObject noteUI;
     public GameObject note;
@@ -16,8 +17,8 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        fpsController = DresdenController.Dresden.GetComponent<FirstPersonController>();
-        playerController = DresdenController.Dresden.GetComponent<DresdenController>();
+        fpsController = player.GetComponent<FirstPersonController>();
+        playerController = player.GetComponent<DresdenController>();
         //Cursor.lockState = CursorLockMode.Confined;
     }
 
@@ -28,14 +29,14 @@ public class PauseMenu : MonoBehaviour
         if (note.activeSelf)
         {
             // if note is glowing, read note, then destroy note and door
-            if (Input.GetKeyDown(KeyCode.E) && note.GetComponent<GlowObject>().glowing == true && pauseUI.activeSelf == false)
+            if (!pauseUI.activeSelf && !Popup.popupOn && note.GetComponent<GlowObject>().glowing && Input.GetMouseButtonDown(0))
                 if (noteUI.activeSelf)
                     Disappear();
                 else
                     Pause(noteUI);
 
             // if escape is pressed and the note is not active, display basic pause menu
-            if (Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf == false)
+            if (!noteUI.activeSelf && !Popup.popupOn && Input.GetKeyDown(KeyCode.Escape))
                 if (pauseUI.activeSelf)
                     Resume(pauseUI);
                 else
@@ -46,14 +47,14 @@ public class PauseMenu : MonoBehaviour
         else
         {
             // display pause after receiving a note
-            if (Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf == false)
+            if (!noteUI.activeSelf && !Popup.popupOn && Input.GetKeyDown(KeyCode.Escape))
                 if (pauseAfterNoteUI.activeSelf)
                     Resume(pauseAfterNoteUI);
                 else
                     Pause(pauseAfterNoteUI);
             
             // if q is pressed, open note
-            if (Input.GetKeyDown(KeyCode.Q) && pauseUI.activeSelf == false)
+            if (!pauseUI.activeSelf && !Popup.popupOn && Input.GetKeyDown(KeyCode.Q))
                 if (noteUI.activeSelf)
                     Resume(noteUI);
                 else

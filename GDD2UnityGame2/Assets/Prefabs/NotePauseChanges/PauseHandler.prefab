@@ -1141,7 +1141,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 1649652760391020}
-  player: {fileID: 0}
   noteUI: {fileID: 0}
   note: {fileID: 0}
   pauseAfterNoteUI: {fileID: 1823836459090644}
