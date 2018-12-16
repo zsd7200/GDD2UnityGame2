@@ -28,9 +28,13 @@ public class MagicTarget : MonoBehaviour
                 }
                 break;
             case (TargetType.Dispertius):
+                gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/hole-texture.png");
+                gameObject.GetComponent<Popup>().enabled = true;
                 type = TargetType.Resarcius;
                 break;
             case (TargetType.Resarcius):
+                gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/crack.png");
+                gameObject.GetComponent<Popup>().enabled = false;
                 type = TargetType.Dispertius;
                 break;
             case (TargetType.Door):
