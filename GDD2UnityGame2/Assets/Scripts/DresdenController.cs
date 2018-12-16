@@ -70,7 +70,7 @@ public class DresdenController : MonoBehaviour
                 }
 
                 Popup popupItem = hit.transform.GetComponent<Popup>();
-                if (handAction == HandAction.Free && popupItem != null && popupItem.enabled) popupItem.DrawPopup();
+                if (popupItem != null && popupItem.enabled) popupItem.DrawPopup();
             }
             if (Input.GetKeyDown(MagicKey))//Use magic
             {
