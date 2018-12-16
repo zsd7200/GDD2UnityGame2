@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimationControl : MonoBehaviour {
 
     public Animator anim;
-    public Rigidbody rBody;
+    //public Rigidbody rBody;
 
     private float inputH;
     private float inputV;
@@ -13,7 +13,7 @@ public class AnimationControl : MonoBehaviour {
     // Use this for initialization
     void Start () {
         anim = GetComponent<Animator>();
-        rBody = GetComponent<Rigidbody>();
+        //rBody = GetComponent<Rigidbody>();
 	}
 	
 	// Update is called once per frame

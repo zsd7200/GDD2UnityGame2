@@ -28,19 +28,18 @@ public class MagicTarget : MonoBehaviour
                 }
                 break;
             case (TargetType.Dispertius):
-                gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/hole-texture.png");
-                gameObject.GetComponent<Popup>().enabled = true;
-                type = TargetType.Resarcius;
+                reference1.SetActive(true);
+                gameObject.SetActive(false);
                 break;
             case (TargetType.Resarcius):
-                gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Images/crack.png");
-                gameObject.GetComponent<Popup>().enabled = false;
-                type = TargetType.Dispertius;
+                reference1.SetActive(true);
+                gameObject.SetActive(false);
                 break;
             case (TargetType.Door):
                 if (PuzzleManager.artifactCount == 5) gameObject.GetComponent<Popup>().enabled = true;
                 break;
         }
+        Debug.Log("Dresden casts " + type + "!");
     }
 
     private void Start()
