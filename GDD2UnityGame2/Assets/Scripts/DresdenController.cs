@@ -12,7 +12,7 @@ public class DresdenController : MonoBehaviour
     const KeyCode MagicKey = KeyCode.F;
     public const float interactDist = 5f; //Maximum pickup distance
     [SerializeField] Texture2D crosshair; // crosshair image
-    [SerializeField] Light selfLight;
+    [SerializeField] GameObject selfLight;
 
     //Variables
     HandAction handAction;
@@ -42,7 +42,7 @@ public class DresdenController : MonoBehaviour
         //Debug.Log(ray);
         if (Physics.Raycast(ray, out hit, interactDist) && hit.transform.gameObject != gameObject)
         {
-            Debug.Log(hit.transform);
+            //Debug.Log(hit.transform);
             
             GlowObject getGlow = hit.transform.GetComponent<GlowObject>();
             if (getGlow != null)
@@ -51,7 +51,7 @@ public class DresdenController : MonoBehaviour
                 getGlow.timer = 0;
             }
 
-            if(Input.GetMouseButtonDown(0)) //Left-clicking on object
+            if(handAction != HandAction.FlickumBicus && Input.GetMouseButtonDown(0)) //Left-clicking on object
             {
                 if (hit.transform.GetComponent<Pickup>() != null) //Item can be picked up
                 {
@@ -62,7 +62,8 @@ public class DresdenController : MonoBehaviour
                     }
                     held = hit.transform.gameObject;
 
-                    held.transform.position = transform.position + new Vector3(Mathf.Cos(Mathf.Deg2Rad * (transform.rotation.eulerAngles.y - 5)), transform.position.y + 1.76f, Mathf.Sin(Mathf.Deg2Rad * (transform.rotation.eulerAngles.y - 5)));
+                    held.transform.position = transform.position + new Vector3(Mathf.Sin(Mathf.Deg2Rad * (transform.rotation.eulerAngles.y + 75)), transform.position.y + 1.76f, Mathf.Cos(Mathf.Deg2Rad * (transform.rotation.eulerAngles.y + 75)));
+                    held.transform.rotation = Quaternion.Euler(held.transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, held.transform.rotation.eulerAngles.z);
                     held.transform.parent = transform;
 
                     handAction = HandAction.HoldObject;
@@ -76,7 +77,7 @@ public class DresdenController : MonoBehaviour
                 MagicTarget MagicItem = hit.transform.GetComponent<MagicTarget>();
                 if (MagicItem != null && MagicItem.enabled) MagicItem.Activate();
             }
-            if (handAction != HandAction.FlickumBicus && Input.GetKeyDown(FlickumKey)){ //Light stuff on fire
+            if (Input.GetKeyDown(FlickumKey)){ //Light stuff on fire
                 LightCandle getLight = hit.transform.GetComponent<LightCandle>();
                 if (getLight != null && getLight.enabled) getLight.LightFlame();
             }
@@ -87,12 +88,12 @@ public class DresdenController : MonoBehaviour
         {
             if(handAction == HandAction.Free)
             {
-                selfLight.enabled = true;
+                selfLight.SetActive(true);
                 handAction = HandAction.FlickumBicus;
             }
             else if(handAction == HandAction.FlickumBicus)
             {
-                selfLight.enabled = false;
+                selfLight.SetActive(false);
                 handAction = HandAction.Free;
             }
         }
