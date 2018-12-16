@@ -31,35 +31,33 @@ public class AnimationControl : MonoBehaviour {
         anim.SetFloat("inputV", inputV);
 
         //check to turn left or right
-        if(inputH > 0.1 && !turnedRight)
+        if(((inputH > 0.1 && inputV > -0.1) || (inputH < -0.1 && inputV < -0.1)) && !turnedRight && !turnedLeft)
         {
             turnedRight = true;
             transform.Rotate(Vector3.up * 45);
         }
-        else
+        else if (((inputH < -0.1 && inputV > -0.1) || (inputH > 0.1 && inputV < -0.1)) && !turnedLeft && !turnedRight)
         {
-            if (inputH < -0.1 && !turnedLeft)
+            turnedLeft = true;
+            transform.Rotate(Vector3.down * 45);
+        }
+
+        if (inputH > -0.1 && inputH < 0.1)
+        {
+            if (turnedRight)
             {
-                turnedLeft = true;
+                turnedRight = false;
                 transform.Rotate(Vector3.down * 45);
             }
-            if(inputH > -0.1 && inputH < 0.1)
+            else if (turnedLeft)
             {
-                if (turnedRight)
-                {
-                    turnedRight = false;
-                    transform.Rotate(Vector3.down * 45);
-                }
-                else if (turnedLeft)
-                {
-                    turnedLeft = false;
-                    transform.Rotate(Vector3.up * 45);
-                }
+                turnedLeft = false;
+                transform.Rotate(Vector3.up * 45);
             }
         }
-        
+
         //check to center running animation
-        if((inputV > 0.1 || inputV < -0.1) && !ran)
+        if ((inputV > 0.1 || inputV < -0.1) && !ran)
         {
             transform.Rotate(Vector3.down * 15);
             ran = true;
