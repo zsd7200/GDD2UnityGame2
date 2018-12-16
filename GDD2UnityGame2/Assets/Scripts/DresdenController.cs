@@ -12,7 +12,7 @@ public class DresdenController : MonoBehaviour
     const KeyCode MagicKey = KeyCode.F;
     public const float interactDist = 5f; //Maximum pickup distance
     [SerializeField] Texture2D crosshair; // crosshair image
-    [SerializeField] GameObject selfLight;
+    [SerializeField] Light selfLight;
 
     //Variables
     HandAction handAction;
@@ -87,12 +87,12 @@ public class DresdenController : MonoBehaviour
         {
             if(handAction == HandAction.Free)
             {
-                selfLight.SetActive(true);
+                selfLight.enabled = true;
                 handAction = HandAction.FlickumBicus;
             }
-            if(handAction == HandAction.FlickumBicus)
+            else if(handAction == HandAction.FlickumBicus)
             {
-                selfLight.SetActive(false);
+                selfLight.enabled = false;
                 handAction = HandAction.Free;
             }
         }
