@@ -7,8 +7,8 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class PauseMenu : MonoBehaviour
 {
 
-    [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject pauseUI;
     public GameObject noteUI;
     public GameObject note;
     public GameObject pauseAfterNoteUI;
@@ -29,14 +29,14 @@ public class PauseMenu : MonoBehaviour
         if (note.activeSelf)
         {
             // if note is glowing, read note, then destroy note and door
-            if (Input.GetKeyDown(KeyCode.E) && note.GetComponent<GlowObject>().glowing == true && pauseUI.activeSelf == false)
+            if (!pauseUI.activeSelf && !Popup.popupOn && note.GetComponent<GlowObject>().glowing && Input.GetMouseButtonDown(0))
                 if (noteUI.activeSelf)
                     Disappear();
                 else
                     Pause(noteUI);
 
             // if escape is pressed and the note is not active, display basic pause menu
-            if (Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf == false)
+            if (!noteUI.activeSelf && !Popup.popupOn && Input.GetKeyDown(KeyCode.Escape))
                 if (pauseUI.activeSelf)
                     Resume(pauseUI);
                 else
@@ -47,24 +47,30 @@ public class PauseMenu : MonoBehaviour
         else
         {
             // display pause after receiving a note
-            if (Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf == false)
+            if (!noteUI.activeSelf && !Popup.popupOn && Input.GetKeyDown(KeyCode.Escape))
                 if (pauseAfterNoteUI.activeSelf)
                     Resume(pauseAfterNoteUI);
                 else
                     Pause(pauseAfterNoteUI);
             
             // if q is pressed, open note
-            if (Input.GetKeyDown(KeyCode.Q) && pauseUI.activeSelf == false)
+            if (!pauseUI.activeSelf && !Popup.popupOn && Input.GetKeyDown(KeyCode.Q))
                 if (noteUI.activeSelf)
                     Resume(noteUI);
                 else
                     Pause(noteUI);
         }
 
+        // key to quit game
+        if (Input.GetKeyDown(KeyCode.X) && (pauseUI.activeSelf == true || pauseAfterNoteUI.activeSelf == true))
+            Application.Quit();
+
     }
 
     public void Resume(GameObject ui)
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         ui.SetActive(false);
         fpsController.enabled = true;
         playerController.enabled = true;
@@ -73,6 +79,8 @@ public class PauseMenu : MonoBehaviour
 
     void Pause(GameObject ui)
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         ui.SetActive(true);
         fpsController.enabled = false;
         playerController.enabled = false;

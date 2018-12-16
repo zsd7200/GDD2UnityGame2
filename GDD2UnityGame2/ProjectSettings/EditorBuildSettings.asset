@@ -18,6 +18,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 5700f9462173ae54498799ddaa3f5e40
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/GameCopyCopy.unity
     guid: 4926e2ca50f7f5148a30dd1921da15ab
+=======
+    path: Assets/Scenes/Game_ZD.unity
+    guid: 1ebe09da25d7565479e072794022108c
+>>>>>>> 2bee0bd6cbd9a86c8c03af76ede0566616d218f8
   m_configObjects: {}
