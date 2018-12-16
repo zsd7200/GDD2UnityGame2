@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] GameObject pauseUI;
     public GameObject noteUI;
+    public GameObject note;
+    public GameObject pauseAfterNoteUI;
     FirstPersonController fpsController;
     DresdenController playerController;
 
@@ -22,43 +24,79 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!Popup.popupOn && !noteUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
-            if (pauseUI.activeSelf)
-                Resume();
-            else
-                Pause();
+        // if note is still on door
+        if (note.activeSelf)
+        {
+            // if note is glowing, read note, then destroy note and door
+            if (Input.GetKeyDown(KeyCode.E) && note.GetComponent<GlowObject>().glowing == true && pauseUI.activeSelf == false)
+                if (noteUI.activeSelf)
+                    Disappear();
+                else
+                    Pause(noteUI);
+
+            // if escape is pressed and the note is not active, display basic pause menu
+            if (Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf == false)
+                if (pauseUI.activeSelf)
+                    Resume(pauseUI);
+                else
+                    Pause(pauseUI);
+        }
+
+        // if note and door have been destroyed
+        else
+        {
+            // display pause after receiving a note
+            if (Input.GetKeyDown(KeyCode.Escape) && noteUI.activeSelf == false)
+                if (pauseAfterNoteUI.activeSelf)
+                    Resume(pauseAfterNoteUI);
+                else
+                    Pause(pauseAfterNoteUI);
+            
+            // if q is pressed, open note
+            if (Input.GetKeyDown(KeyCode.Q) && pauseUI.activeSelf == false)
+                if (noteUI.activeSelf)
+                    Resume(noteUI);
+                else
+                    Pause(noteUI);
+        }
+
     }
 
-    public void Resume()
+    public void Resume(GameObject ui)
     {
-        pauseUI.SetActive(false);
+        ui.SetActive(false);
         fpsController.enabled = true;
         playerController.enabled = true;
         Time.timeScale = 1f;
     }
 
-    void Pause()
+    void Pause(GameObject ui)
     {
-        pauseUI.SetActive(true);
+        ui.SetActive(true);
         fpsController.enabled = false;
         playerController.enabled = false;
         Time.timeScale = 0f;
     }
 
-    public void Restart()
+    void Disappear()
     {
-        Resume();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Resume(noteUI);
+        note.SetActive(false);
+        StartCoroutine(Shrink(GameObject.FindGameObjectWithTag("Door"), 5, Vector3.zero));
+        //StartCoroutine(Shrink(note, 5, Vector3.zero));
     }
 
-    public void Menu()
+    // shrink animation for door and note
+    private IEnumerator Shrink(GameObject obj, float delay, Vector3 scale)
     {
-        Resume();
-        SceneManager.LoadScene("Menu");
-    }
+        float currTime = 0;
 
-    public void Exit()
-    {
-        Application.Quit();
+        while (currTime <= delay)
+        {
+            obj.transform.localScale = Vector3.Lerp(obj.transform.localScale, scale, currTime / delay);
+            currTime += Time.deltaTime;
+
+            yield return null;
+        }
     }
 }
