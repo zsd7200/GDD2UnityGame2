@@ -10,18 +10,21 @@ public class Timer : MonoBehaviour {
     public static string formattedTime; //String to hold time
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         timeRemaining = 1800.0f; //30 minutes (30x60)
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         timeRemaining -= Time.deltaTime;
         secondsRemaining = (int)(timeRemaining % 60); //Find the number of seconds remaining
         minRemaining = (int)(timeRemaining / 60);//Find the number of minutes remaining
 
-        formattedTime = minRemaining + ":" + secondsRemaining; //Formatted time
-        Debug.Log(formattedTime);
-
-    }
+        if (secondsRemaining < 10)
+            formattedTime = minRemaining + ":0" + secondsRemaining;
+        else
+            formattedTime = minRemaining + ":" + secondsRemaining; //Formatted time
+    }   
 }
