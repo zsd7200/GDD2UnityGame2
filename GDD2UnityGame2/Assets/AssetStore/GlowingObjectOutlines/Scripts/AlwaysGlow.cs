@@ -43,7 +43,7 @@ public class AlwaysGlow : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<PuzzleManager>().artifactCount++;
+                PuzzleManager.artifactCount++;
                 gameObject.SetActive(false);
             }
         }

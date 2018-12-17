@@ -5,8 +5,8 @@ using UnityEngine;
 public class PuzzleManager : MonoBehaviour {
     const int totalCandles = 14;
 
-    public int litCandles = 0;
-    public int artifactCount = 0;
+    public static int litCandles = 0;
+    public static int artifactCount = 0;
 
     [SerializeField] GameObject Fireplace;
 	// Use this for initialization
