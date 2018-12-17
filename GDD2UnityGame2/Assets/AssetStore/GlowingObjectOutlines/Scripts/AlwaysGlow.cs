@@ -45,7 +45,7 @@ public class AlwaysGlow : MonoBehaviour
             {
                 PuzzleManager.artifactCount++;
                 gameObject.transform.localScale = Vector3.zero;
-                //_targetColor = Color.black;
+                _targetColor = Color.black;
             }
         }
     }
