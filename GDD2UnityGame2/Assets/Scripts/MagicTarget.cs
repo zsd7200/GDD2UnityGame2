@@ -64,7 +64,12 @@ public class MagicTarget : MonoBehaviour
     private void Update()
     {
         if (hole == true)
+        {
             StartCoroutine(MoveAnim(rune1, 2, v));
+
+            if (rune1.GetComponentInChildren<AlwaysGlow>().glow == false)
+                rune1.GetComponentInChildren<AlwaysGlow>().glow = true;
+        }
 
     }
 
@@ -78,7 +83,7 @@ public class MagicTarget : MonoBehaviour
         rune5 = GameObject.FindGameObjectWithTag("rune5");
 
         v = rune1.transform.position;
-        v.y = .1f;
+        v.y = 3f;
 
     }
 
