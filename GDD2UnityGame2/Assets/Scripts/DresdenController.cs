@@ -20,7 +20,8 @@ public class DresdenController : MonoBehaviour
     HandAction handAction;
     GameObject held = null;
     [SerializeField] RaycastHit hit;
-    
+    int bookOrder;
+
     public bool IsHolding(PickupType item)
     {
         return handAction == HandAction.HoldObject && held.GetComponent<Pickup>().type == item;
@@ -33,6 +34,7 @@ public class DresdenController : MonoBehaviour
     // Use this for initialization
     void Start () {
         if (Dresden == null) Dresden = transform;
+        bookOrder = 1;
 	}
 	
 	// Update is called once per frame
@@ -71,9 +73,22 @@ public class DresdenController : MonoBehaviour
                     handAction = HandAction.HoldObject;
                 }
 
-                if(hit.transform.GetComponent<BookFlip>() != null)
+                if(hit.transform.GetComponent<BookFlip>() != null)//check the books puzzle for the right order
                 {
+                    hit.transform.GetComponent<BookFlip>().Flip();
+                    if (hit.transform.GetComponent<BookFlip>().order == bookOrder)
+                    {
+                        bookOrder++;
+                    }
+                    else
+                    {
+                        bookOrder = 1;
+                    }
 
+                    if(bookOrder >= 9)
+                    {
+
+                    }
                 }
 
                 Popup popupItem = hit.transform.GetComponent<Popup>();
