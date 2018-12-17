@@ -14,6 +14,7 @@ public class DresdenController : MonoBehaviour
     [SerializeField] Texture2D crosshair; // crosshair image
     [SerializeField] GameObject selfLight;
     string scoreText;
+    string timeText;
 
 
     //Variables
@@ -41,6 +42,8 @@ public class DresdenController : MonoBehaviour
 	void Update ()
     {
         scoreText = "Runes Collected: " + PuzzleManager.artifactCount;
+        timeText = Timer.formattedTime;
+
         //Checks for interactions
         Ray ray = Camera.main.ScreenPointToRay(new Vector3((Screen.width / 2) - (crosshair.width / 2), (Screen.height / 2) - (crosshair.height / 2), 0));
         //Debug.Log(ray);
@@ -147,5 +150,7 @@ public class DresdenController : MonoBehaviour
         GUI.skin.textField.fontSize = 30;
         GUI.skin.textField.padding = new RectOffset(10, 0, 10, 0);
         scoreText = GUI.TextField(new Rect(10, 10, 280, 55), scoreText);
+
+        timeText = GUI.TextField(new Rect(Screen.width - 105, 10, 95, 55), timeText);
     }
 }
