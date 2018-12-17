@@ -24,7 +24,6 @@ public class PuzzleManager : MonoBehaviour {
             Fireplace.GetComponent<GlowObject>().enabled = true;
             Fireplace.GetComponent<MagicTarget>().enabled = true;
             litCandles = -1;
-            Fireplace.transform.GetChild(2).GetComponent<AudioSource>().Play();
         }
 	}
 }

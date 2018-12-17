@@ -10,14 +10,16 @@ public class MagicTarget : MonoBehaviour
     public GameObject rune3;
     public GameObject rune4;
     public GameObject rune5;
-    private Vector3 v;
-    bool corout;
+    private Vector3 v,vv,vvv;
+    bool[] corout = new bool[5];
 
     public TargetType type;
     [SerializeField] GameObject reference1; //Used during activation
     [SerializeField] GameObject reference2;
     [SerializeField] GameObject reference3;
     bool hole = false;
+    bool lit = false;
+    bool reflect = false;
 
     public void Activate()
     {
@@ -25,8 +27,13 @@ public class MagicTarget : MonoBehaviour
 
         switch (type)
         {
+            //sets fire to the fireplace
             case (TargetType.Fuego):
-                reference1.SetActive(true);
+                if (hole == false)
+                {
+                    reference1.SetActive(true);
+                    lit = true;
+                }
                 break;
             case (TargetType.Ventiferro):
                 gameObject.GetComponent<Popup>().enabled = true;
@@ -66,18 +73,50 @@ public class MagicTarget : MonoBehaviour
     {
         if (hole == true)
         {
-            if (corout == true)
+            if (corout[0] == true)
             {
                 StartCoroutine(MoveAnim(rune1, 2, v));
-                rune1.transform.GetChild(0).GetComponent<AudioSource>().Play();
+                //rune1.transform.GetChild(0).GetComponent<AudioSource>().Play();
             }
-                
-
-            corout = false;
+            corout[0] = false;
 
             if (rune1.activeSelf == true && rune1.GetComponent<AlwaysGlow>().glow == false)
                 rune1.GetComponent<AlwaysGlow>().glow = true;
         }
+
+
+        if (lit == true)
+        {
+            if (corout[1] == true)
+            {
+                StartCoroutine(MoveAnim(rune2, 2, vv));
+                rune2.transform.GetChild(0).GetComponent<AudioSource>().Play();
+            }
+
+
+            corout[1] = false;
+
+            if (rune2.activeSelf == true && rune2.GetComponent<AlwaysGlow>().glow == false)
+                rune2.GetComponent<AlwaysGlow>().glow = true;
+        }
+
+        if (reflect == true)
+        {
+            if (corout[2] == true)
+            {
+                StartCoroutine(MoveAnim(rune3, 2, vvv));
+                rune3.transform.GetChild(0).GetComponent<AudioSource>().Play();
+            }
+
+
+            corout[2] = false;
+
+            if (rune3.activeSelf == true && rune3.GetComponent<AlwaysGlow>().glow == false)
+                rune3.GetComponent<AlwaysGlow>().glow = true;
+        }
+
+
+
 
     }
 
@@ -91,9 +130,18 @@ public class MagicTarget : MonoBehaviour
         rune5 = GameObject.FindGameObjectWithTag("rune5");
 
         v = rune1.transform.position;
-        v.y = 3f;
+        v.y = 2f;
 
-        corout = true;
+        vv = rune2.transform.position;
+        vv.z = -22f;
+
+        vvv = rune3.transform.position;
+        vvv.z = 8f;
+
+        for (int i = 0; i < corout.Length; i++)
+        {
+            corout[i] = true;
+        }
     }
 
     // movement animation

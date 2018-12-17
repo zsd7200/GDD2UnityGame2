@@ -3,7 +3,15 @@ guid: aea91d1ddc3e9474094ba877577f4274
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - rune1: {fileID: 1066309942277580, guid: 6a4a49be6e579c64d899b3f688aba5be, type: 2}
+  - rune2: {fileID: 1887209431717052, guid: aeba5e5ffed933e4398fe8dc21c01b3c, type: 2}
+  - rune3: {fileID: 1289289460992746, guid: d0f9307cfaa86ff41be355c2ff7175b5, type: 2}
+  - rune4: {instanceID: 0}
+  - rune5: {instanceID: 0}
+  - reference1: {instanceID: 0}
+  - reference2: {instanceID: 0}
+  - reference3: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
