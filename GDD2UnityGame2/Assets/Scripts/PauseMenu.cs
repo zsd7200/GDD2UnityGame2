@@ -52,10 +52,15 @@ public class PauseMenu : MonoBehaviour
                     Resume(pauseAfterNoteUI);
                 else
                     Pause(pauseAfterNoteUI);
-            
+
             // if q is pressed, open note
             if (!pauseUI.activeSelf && !Popup.popupOn && Input.GetKeyDown(KeyCode.Q))
-                if (noteUI.activeSelf)
+                if (noteUI.activeSelf && pauseAfterNoteUI.activeSelf)
+                {
+                    Resume(noteUI);
+                    Pause(pauseAfterNoteUI);
+                }
+                else if (noteUI.activeSelf)
                     Resume(noteUI);
                 else
                     Pause(noteUI);

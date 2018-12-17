@@ -113,25 +113,10 @@ public class DresdenController : MonoBehaviour
             }
         }
 
-        //Other updates
-        else if(Input.GetKeyDown(FlickumKey))
-        {
-            if(handAction == HandAction.Free)
-            {
-                selfLight.SetActive(true);
-                handAction = HandAction.FlickumBicus;
-            }
-            else if(handAction == HandAction.FlickumBicus)
-            {
-                selfLight.SetActive(false);
-                handAction = HandAction.Free;
-            }
-        }
-
         if (handAction == HandAction.HoldObject)
         {
             if (held == null) handAction = HandAction.Free; //Failsafe
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(2))
             {
                 held.transform.parent = null;
                 held.transform.position = new Vector3(held.transform.position.x, 0, held.transform.position.z);

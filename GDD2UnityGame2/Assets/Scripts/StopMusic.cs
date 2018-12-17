@@ -9,7 +9,7 @@ public class StopMusic : MonoBehaviour
     {
 		if (gameObject.GetComponent<GlowObject>().glowing == true)
         {
-            if (Input.GetKeyDown("e"))
+            if (Input.GetKeyDown(KeyCode.Mouse0))
                 if (gameObject.GetComponent<AudioSource>().isPlaying == true)
                     gameObject.GetComponent<AudioSource>().Pause();
                 else
