@@ -42,27 +42,6 @@ public class MagicTarget : MonoBehaviour
                 if (hole == false)
                 {
                     reference1.SetActive(true);
-                    //gameObject.SetActive(false);
-
-                    Debug.Log(rune1.name);
-
-                    Debug.Log(rune1.transform.position.x);
-                    Debug.Log(rune1.transform.position.y);
-                    Debug.Log(rune1.transform.position.z);
-
-                    //Vector3 v = rune1.transform.position;
-                    //v.y = .1f;
-
-                    Debug.Log(v.x);
-                    Debug.Log(v.y);
-                    Debug.Log(v.z);
-
-
-
-                    Debug.Log(rune1.transform.position.x);
-                    Debug.Log(rune1.transform.position.y);
-                    Debug.Log(rune1.transform.position.z);
-
                     hole = true;
                 }
                 break;
