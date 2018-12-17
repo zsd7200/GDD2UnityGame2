@@ -21,7 +21,7 @@ public class DresdenController : MonoBehaviour
     HandAction handAction;
     GameObject held = null;
     [SerializeField] RaycastHit hit;
-    int bookOrder;
+    public int bookOrder;
 
     public bool IsHolding(PickupType item)
     {

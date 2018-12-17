@@ -24,7 +24,7 @@ public class BookFlip : MonoBehaviour {
 
     public void ShelfFlip()
     {
-        StartCoroutine(Rotate(gameObject, 5, Quaternion.Euler(0, 90, 0)));
+        StartCoroutine(Translate(gameObject, 5, new Vector3(-23.32f, 0, -14.51f)));
     }
 
     // shrink animation for door and note
@@ -35,6 +35,20 @@ public class BookFlip : MonoBehaviour {
         while (currTime <= delay)
         {
             obj.transform.rotation = Quaternion.Lerp(obj.transform.rotation, rot, currTime / delay);
+            currTime += Time.deltaTime;
+
+            yield return null;
+        }
+    }
+
+    // shrink animation for door and note
+    private IEnumerator Translate(GameObject obj, float delay, Vector3 pos)
+    {
+        float currTime = 0;
+
+        while (currTime <= delay)
+        {
+            obj.transform.position = Vector3.Lerp(obj.transform.position, pos, currTime / delay);
             currTime += Time.deltaTime;
 
             yield return null;
