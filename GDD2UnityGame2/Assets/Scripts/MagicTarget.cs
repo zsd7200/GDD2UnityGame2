@@ -11,6 +11,7 @@ public class MagicTarget : MonoBehaviour
     public GameObject rune4;
     public GameObject rune5;
     private Vector3 v;
+    bool corout;
 
     public TargetType type;
     [SerializeField] GameObject reference1; //Used during activation
@@ -65,10 +66,13 @@ public class MagicTarget : MonoBehaviour
     {
         if (hole == true)
         {
-            StartCoroutine(MoveAnim(rune1, 2, v));
+            if (corout == true)
+                StartCoroutine(MoveAnim(rune1, 2, v));
 
-            if (rune1.GetComponentInChildren<AlwaysGlow>().glow == false)
-                rune1.GetComponentInChildren<AlwaysGlow>().glow = true;
+            corout = false;
+
+            if (rune1.activeSelf == true && rune1.GetComponent<AlwaysGlow>().glow == false)
+                rune1.GetComponent<AlwaysGlow>().glow = true;
         }
 
     }
@@ -85,6 +89,7 @@ public class MagicTarget : MonoBehaviour
         v = rune1.transform.position;
         v.y = 3f;
 
+        corout = true;
     }
 
     // movement animation
