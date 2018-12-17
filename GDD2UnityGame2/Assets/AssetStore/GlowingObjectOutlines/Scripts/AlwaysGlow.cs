@@ -40,6 +40,12 @@ public class AlwaysGlow : MonoBehaviour
             {
                 _materials[i].SetColor("_GlowColor", _targetColor);//Set the glow color
             }
+
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                GameObject.FindGameObjectWithTag("PuzzleManager").GetComponent<PuzzleManager>().artifactCount++;
+                gameObject.SetActive(false);
+            }
         }
     }
 }
