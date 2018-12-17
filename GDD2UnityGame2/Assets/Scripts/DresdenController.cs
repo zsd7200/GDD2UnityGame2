@@ -13,6 +13,8 @@ public class DresdenController : MonoBehaviour
     public const float interactDist = 5f; //Maximum pickup distance
     [SerializeField] Texture2D crosshair; // crosshair image
     [SerializeField] GameObject selfLight;
+    string scoreText;
+
 
     //Variables
     HandAction handAction;
@@ -36,7 +38,7 @@ public class DresdenController : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-
+        scoreText = "Runes Collected: " + PuzzleManager.artifactCount;
         //Checks for interactions
         Ray ray = Camera.main.ScreenPointToRay(new Vector3((Screen.width / 2) - (crosshair.width / 2), (Screen.height / 2) - (crosshair.height / 2), 0));
         //Debug.Log(ray);
@@ -120,5 +122,10 @@ public class DresdenController : MonoBehaviour
 
         // draw crosshair
         GUI.Box(new Rect((Screen.width / 2) - (crosshair.width / 2), (Screen.height / 2) - (crosshair.height / 2), crosshair.width, crosshair.height), crosshair, style);
+
+
+        GUI.skin.textField.fontSize = 30;
+        GUI.skin.textField.padding = new RectOffset(10, 0, 10, 0);
+        scoreText = GUI.TextField(new Rect(10, 10, 280, 55), scoreText);
     }
 }
