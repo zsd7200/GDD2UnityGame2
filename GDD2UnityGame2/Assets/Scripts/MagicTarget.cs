@@ -10,16 +10,17 @@ public class MagicTarget : MonoBehaviour
     public GameObject rune3;
     public GameObject rune4;
     public GameObject rune5;
+    private Vector3 v;
 
     public TargetType type;
-    [SerializeField] GameObject reference1;
+    [SerializeField] GameObject reference1; //Used during activation
     [SerializeField] GameObject reference2;
     [SerializeField] GameObject reference3;
     bool hole = false;
 
     public void Activate()
     {
-        DresdenController dresden = DresdenController.Dresden.GetComponent<DresdenController>();
+        DresdenController dresden = DresdenController.Dresden.GetComponent<DresdenController>(); //Find player script
 
         switch (type)
         {
@@ -49,14 +50,15 @@ public class MagicTarget : MonoBehaviour
                     Debug.Log(rune1.transform.position.y);
                     Debug.Log(rune1.transform.position.z);
 
-                    Vector3 v = rune1.transform.position;
-                    v.y = .1f;
+                    //Vector3 v = rune1.transform.position;
+                    //v.y = .1f;
 
                     Debug.Log(v.x);
                     Debug.Log(v.y);
                     Debug.Log(v.z);
 
-                    CoroutineHandler(rune1, 5, v);
+                    //CoroutineHandler(rune1, 5, v);
+                    StartCoroutine(MoveAnim(rune1, 5, v));
 
                     Debug.Log(rune1.transform.position.x);
                     Debug.Log(rune1.transform.position.y);
@@ -88,6 +90,11 @@ public class MagicTarget : MonoBehaviour
         rune3 = GameObject.FindGameObjectWithTag("rune3");
         rune4 = GameObject.FindGameObjectWithTag("rune4");
         rune5 = GameObject.FindGameObjectWithTag("rune5");
+
+        v = rune1.transform.position;
+        v.y = .1f;
+
+        StartCoroutine(MoveAnim(rune1, 5, v));
 
     }
 
