@@ -42,7 +42,7 @@ public class MagicTarget : MonoBehaviour
                 if (hole == false)
                 {
                     reference1.SetActive(true);
-                    gameObject.SetActive(false);
+                    //gameObject.SetActive(false);
 
                     Debug.Log(rune1.name);
 
@@ -57,8 +57,7 @@ public class MagicTarget : MonoBehaviour
                     Debug.Log(v.y);
                     Debug.Log(v.z);
 
-                    //CoroutineHandler(rune1, 5, v);
-                    StartCoroutine(MoveAnim(rune1, 5, v));
+
 
                     Debug.Log(rune1.transform.position.x);
                     Debug.Log(rune1.transform.position.y);
@@ -79,12 +78,20 @@ public class MagicTarget : MonoBehaviour
                 if (PuzzleManager.artifactCount == 5) gameObject.GetComponent<Popup>().enabled = true;
                 break;
         }
+
         Debug.Log("Dresden casts " + type + "!");
+    }
+
+    private void Update()
+    {
+        if (hole == true)
+            StartCoroutine(MoveAnim(rune1, 2, v));
+
     }
 
     private void Start()
     {
-        if (false) enabled = false; //Referencing enabled makes it appear in the inspector, so we can pick which ones are active at first
+        //if (false) enabled = false; //Referencing enabled makes it appear in the inspector, so we can pick which ones are active at first
         rune1 = GameObject.FindGameObjectWithTag("rune1");
         rune2 = GameObject.FindGameObjectWithTag("rune2");
         rune3 = GameObject.FindGameObjectWithTag("rune3");
@@ -94,14 +101,6 @@ public class MagicTarget : MonoBehaviour
         v = rune1.transform.position;
         v.y = .1f;
 
-        StartCoroutine(MoveAnim(rune1, 5, v));
-
-    }
-
-    private void CoroutineHandler(GameObject obj, float delay, Vector3 newPos)
-    {
-        Debug.Log("handler");
-        StartCoroutine(MoveAnim(obj, delay, newPos));
     }
 
     // movement animation
