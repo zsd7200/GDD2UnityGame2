@@ -17,7 +17,7 @@ public class BookFlip : MonoBehaviour {
 
     public void Flip()
     {
-        StartCoroutine(Rotate(gameObject, 5, Quaternion.Euler(0,45,30)));
+        StartCoroutine(Rotate(gameObject, 5, Quaternion.Euler(-60,180,0)));
 
     }
 
