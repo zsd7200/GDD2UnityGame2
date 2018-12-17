@@ -50,14 +50,13 @@ public class MagicTarget : MonoBehaviour
                     Debug.Log(rune1.transform.position.z);
 
                     Vector3 v = rune1.transform.position;
-                    v.y = .08f;
+                    v.y = .1f;
 
                     Debug.Log(v.x);
                     Debug.Log(v.y);
                     Debug.Log(v.z);
 
-                    StartCoroutine(MoveAnim(rune1, 5, v));
-
+                    CoroutineHandler(rune1, 5, v);
 
                     Debug.Log(rune1.transform.position.x);
                     Debug.Log(rune1.transform.position.y);
@@ -92,17 +91,22 @@ public class MagicTarget : MonoBehaviour
 
     }
 
+    private void CoroutineHandler(GameObject obj, float delay, Vector3 newPos)
+    {
+        Debug.Log("handler");
+        StartCoroutine(MoveAnim(obj, delay, newPos));
+    }
+
     // movement animation
     private IEnumerator MoveAnim(GameObject obj, float delay, Vector3 newPos)
     {
-        Debug.Log("hewwo");
+        Debug.Log("move");
 
         float currTime = 0;
         Vector3 start = obj.transform.position;
 
         while (currTime <= delay)
         {
-
             obj.transform.position = Vector3.Lerp(start, newPos, currTime / delay);
             currTime += Time.deltaTime;
 
@@ -112,4 +116,5 @@ public class MagicTarget : MonoBehaviour
             yield return null;
         }
     }
+
 }
