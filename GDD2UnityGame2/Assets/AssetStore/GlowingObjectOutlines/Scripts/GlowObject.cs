@@ -51,6 +51,10 @@ public class GlowObject : MonoBehaviour
         glowing = false;
     }
 
+    private void OnDisable()
+    {
+        OnGlowExit();
+    }
 
     /// <summary>
     /// Loop over all cached materials and update their color, disable self if we reach our target color.
