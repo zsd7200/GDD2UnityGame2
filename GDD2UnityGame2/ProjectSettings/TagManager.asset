@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Door
+  - rune1
+  - rune2
+  - rune3
+  - rune4
+  - rune5
   layers:
   - Default
   - TransparentFX
