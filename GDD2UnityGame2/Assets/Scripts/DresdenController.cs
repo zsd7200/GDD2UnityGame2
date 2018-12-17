@@ -71,6 +71,11 @@ public class DresdenController : MonoBehaviour
                     handAction = HandAction.HoldObject;
                 }
 
+                if(hit.transform.GetComponent<BookFlip>() != null)
+                {
+
+                }
+
                 Popup popupItem = hit.transform.GetComponent<Popup>();
                 if (popupItem != null && popupItem.enabled) popupItem.DrawPopup();
             }
