@@ -5,10 +5,11 @@ using UnityEngine;
 public class BookFlip : MonoBehaviour {
 
     public int order;
+    private Quaternion originalQuat;
 
 	// Use this for initialization
 	void Start () {
-		
+        originalQuat = transform.rotation;
 	}
 	
 	// Update is called once per frame
@@ -17,10 +18,14 @@ public class BookFlip : MonoBehaviour {
 
     public void Flip()
     {
-        StartCoroutine(Rotate(gameObject, 5, Quaternion.Euler(-60,180,0)));
-
+        StartCoroutine(Rotate(gameObject, 5, Quaternion.Euler(10, 90, 0)));
+        StartCoroutine(Rotate(gameObject, 5, originalQuat));
     }
 
+    public void ShelfFlip()
+    {
+        StartCoroutine(Rotate(gameObject, 5, Quaternion.Euler(0, 90, 0)));
+    }
 
     // shrink animation for door and note
     private IEnumerator Rotate(GameObject obj, float delay, Quaternion rot)

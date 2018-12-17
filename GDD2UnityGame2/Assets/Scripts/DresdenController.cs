@@ -79,6 +79,7 @@ public class DresdenController : MonoBehaviour
                 if(hit.transform.GetComponent<BookFlip>() != null)//check the books puzzle for the right order
                 {
                     hit.transform.GetComponent<BookFlip>().Flip();
+
                     if (hit.transform.GetComponent<BookFlip>().order == bookOrder)
                     {
                         bookOrder++;
@@ -90,7 +91,7 @@ public class DresdenController : MonoBehaviour
 
                     if(bookOrder >= 9)
                     {
-
+                        GameObject.Find("Bookcase Left").GetComponent<BookFlip>().ShelfFlip();
                     }
                 }
 
