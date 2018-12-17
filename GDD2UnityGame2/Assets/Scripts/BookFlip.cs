@@ -5,6 +5,7 @@ using UnityEngine;
 public class BookFlip : MonoBehaviour {
 
     public int order;
+    public bool shelf;
     private Quaternion originalQuat;
 
 	// Use this for initialization

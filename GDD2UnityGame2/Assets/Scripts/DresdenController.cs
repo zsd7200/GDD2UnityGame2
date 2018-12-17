@@ -22,6 +22,7 @@ public class DresdenController : MonoBehaviour
     GameObject held = null;
     [SerializeField] RaycastHit hit;
     public int bookOrder;
+    public static bool booked;
 
     public bool IsHolding(PickupType item)
     {
@@ -36,6 +37,7 @@ public class DresdenController : MonoBehaviour
     void Start () {
         if (Dresden == null) Dresden = transform;
         bookOrder = 1;
+        booked = false;
 	}
 	
 	// Update is called once per frame
@@ -78,7 +80,8 @@ public class DresdenController : MonoBehaviour
 
                 if(hit.transform.GetComponent<BookFlip>() != null)//check the books puzzle for the right order
                 {
-                    hit.transform.GetComponent<BookFlip>().Flip();
+                    if(!hit.transform.GetComponent<BookFlip>().shelf)
+                        hit.transform.GetComponent<BookFlip>().Flip();
 
                     if (hit.transform.GetComponent<BookFlip>().order == bookOrder)
                     {
@@ -92,6 +95,7 @@ public class DresdenController : MonoBehaviour
                     if(bookOrder >= 9)
                     {
                         GameObject.Find("Bookcase Left").GetComponent<BookFlip>().ShelfFlip();
+                        booked = true;
                     }
                 }
 

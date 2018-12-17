@@ -11,7 +11,7 @@ public class MagicTarget : MonoBehaviour
     public GameObject rune4;
     public GameObject rune5;
     public GameObject dresdenModel;
-    private Vector3 v,vv,vvv;
+    private Vector3 v,vv,vvv,vvvv;
     bool[] corout = new bool[5];
 
     public TargetType type;
@@ -21,6 +21,7 @@ public class MagicTarget : MonoBehaviour
     bool hole = false;
     bool lit = false;
     bool reflect = false;
+    bool booked = false;
 
     public void Activate()
     {
@@ -64,15 +65,15 @@ public class MagicTarget : MonoBehaviour
                 }
                 break;
             case (TargetType.Resarcius):
-                if (hole == true)
+                if (booked == false)
                 {
-                    reference1.SetActive(true);
-                    gameObject.SetActive(false);
-                    hole = false;
+                    //reference1.SetActive(true);
+                    //gameObject.SetActive(false);
+                    booked = true;
                 }
                 break;
             case (TargetType.Solvos):
-                if (PuzzleManager.artifactCount == 5) gameObject.GetComponent<Popup>().enabled = true;
+                if (PuzzleManager.artifactCount == 4) gameObject.GetComponent<Popup>().enabled = true;
                 break;
         }
 
@@ -125,7 +126,19 @@ public class MagicTarget : MonoBehaviour
                 rune3.GetComponent<AlwaysGlow>().glow = true;
         }
 
+        if (DresdenController.booked == true)
+        {
+            if (corout[3] == true)
+            {
+                StartCoroutine(MoveAnim(rune4, 2, vvvv));
+                rune4.transform.GetChild(0).GetComponent<AudioSource>().Play();
+            }
 
+            corout[3] = false;
+
+            if (rune4.activeSelf == true && rune4.GetComponent<AlwaysGlow>().glow == false)
+                rune4.GetComponent<AlwaysGlow>().glow = true;
+        }
 
 
     }
@@ -148,6 +161,9 @@ public class MagicTarget : MonoBehaviour
         vvv = rune3.transform.position;
         vvv.z = 2f;
 
+        vvvv = rune4.transform.position;
+        vvvv.x = -22.7f;
+
         for (int i = 0; i < corout.Length; i++)
         {
             corout[i] = true;
@@ -157,8 +173,6 @@ public class MagicTarget : MonoBehaviour
     // movement animation
     private IEnumerator MoveAnim(GameObject obj, float delay, Vector3 newPos)
     {
-       
-
         float currTime = 0;
         Vector3 start = obj.transform.position;
 
@@ -169,7 +183,6 @@ public class MagicTarget : MonoBehaviour
 
             if (currTime > delay)
                 obj.transform.position = newPos;
-
             yield return null;
         }
     }
