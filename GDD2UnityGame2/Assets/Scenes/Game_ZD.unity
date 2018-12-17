@@ -938,6 +938,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea91d1ddc3e9474094ba877577f4274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rune1: {fileID: 0}
+  rune2: {fileID: 0}
+  rune3: {fileID: 0}
+  rune4: {fileID: 0}
+  rune5: {fileID: 0}
   type: 2
   reference1: {fileID: 0}
   reference2: {fileID: 0}
@@ -2000,6 +2005,48 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f79b3e672b363784e95d8263dd9a0add, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1001 &675678138
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4089931075375430, guid: 41e6841c830cfc44ca32e56eb16a243b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.9146967
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089931075375430, guid: 41e6841c830cfc44ca32e56eb16a243b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.107
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089931075375430, guid: 41e6841c830cfc44ca32e56eb16a243b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -15.0471525
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089931075375430, guid: 41e6841c830cfc44ca32e56eb16a243b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089931075375430, guid: 41e6841c830cfc44ca32e56eb16a243b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089931075375430, guid: 41e6841c830cfc44ca32e56eb16a243b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089931075375430, guid: 41e6841c830cfc44ca32e56eb16a243b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089931075375430, guid: 41e6841c830cfc44ca32e56eb16a243b, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 41e6841c830cfc44ca32e56eb16a243b, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!1 &682681590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2795,7 +2842,7 @@ Transform:
   - {fileID: 1092693978}
   - {fileID: 757877289}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &795669301
 GameObject:
@@ -4374,6 +4421,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea91d1ddc3e9474094ba877577f4274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rune1: {fileID: 0}
+  rune2: {fileID: 0}
+  rune3: {fileID: 0}
+  rune4: {fileID: 0}
+  rune5: {fileID: 0}
   type: 0
   reference1: {fileID: 1794587313}
   reference2: {fileID: 0}
@@ -4938,6 +4990,37 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!84 &1390582677
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1198
+  m_Height: 396
+  m_AntiAliasing: 4
+  m_DepthFormat: 2
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1401902987 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1521114935579260, guid: e1bc322df4749b84983e8d395d537a57,
@@ -5555,7 +5638,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551382656
 GameObject:
@@ -6399,6 +6482,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea91d1ddc3e9474094ba877577f4274, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rune1: {fileID: 0}
+  rune2: {fileID: 0}
+  rune3: {fileID: 0}
+  rune4: {fileID: 0}
+  rune5: {fileID: 0}
   type: 1
   reference1: {fileID: 0}
   reference2: {fileID: 0}
@@ -11959,7 +12047,7 @@ Transform:
   m_LocalScale: {x: 60.515, y: 60.515003, z: 60.515003}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 35
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 92.45398, y: -0.000015258789, z: -0.000015258789}
 --- !u!108 &2055489309
 Light:
