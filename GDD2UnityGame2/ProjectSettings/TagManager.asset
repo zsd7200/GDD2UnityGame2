@@ -10,6 +10,7 @@ TagManager:
   - rune3
   - rune4
   - rune5
+  - GlowDoor
   layers:
   - Default
   - TransparentFX

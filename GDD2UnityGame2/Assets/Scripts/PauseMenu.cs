@@ -12,6 +12,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject noteUI;
     public GameObject note;
     public GameObject pauseAfterNoteUI;
+    public GameObject glowDoor;
+    public GameObject youWin;
     FirstPersonController fpsController;
     DresdenController playerController;
 
@@ -29,14 +31,14 @@ public class PauseMenu : MonoBehaviour
         if (note.activeSelf)
         {
             // if note is glowing, read note, then destroy note and door
-            if (!pauseUI.activeSelf && !Popup.popupOn && note.GetComponent<GlowObject>().glowing && Input.GetMouseButtonDown(0))
+            if (!pauseUI.activeSelf && note.activeSelf == true && Input.GetMouseButtonDown(0))
                 if (noteUI.activeSelf)
                     Disappear();
                 else
                     Pause(noteUI);
 
             // if escape is pressed and the note is not active, display basic pause menu
-            if (!noteUI.activeSelf && !Popup.popupOn && Input.GetKeyDown(KeyCode.Escape))
+            if (!noteUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
                 if (pauseUI.activeSelf)
                     Resume(pauseUI);
                 else
@@ -47,14 +49,14 @@ public class PauseMenu : MonoBehaviour
         else
         {
             // display pause after receiving a note
-            if (!noteUI.activeSelf && !Popup.popupOn && Input.GetKeyDown(KeyCode.Escape))
+            if (!noteUI.activeSelf && Input.GetKeyDown(KeyCode.Escape))
                 if (pauseAfterNoteUI.activeSelf)
                     Resume(pauseAfterNoteUI);
                 else
                     Pause(pauseAfterNoteUI);
 
             // if q is pressed, open note
-            if (!pauseUI.activeSelf && !Popup.popupOn && Input.GetKeyDown(KeyCode.Q))
+            if (!pauseUI.activeSelf && Input.GetKeyDown(KeyCode.Q))
                 if (noteUI.activeSelf && pauseAfterNoteUI.activeSelf)
                 {
                     Resume(noteUI);
@@ -70,6 +72,22 @@ public class PauseMenu : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && (pauseUI.activeSelf == true || pauseAfterNoteUI.activeSelf == true))
             Application.Quit();
 
+        
+        if(Input.GetKeyDown(KeyCode.Mouse0) && Wall.canClick == true && PuzzleManager.artifactCount == 4)
+        {
+            StartCoroutine(Shrink(GameObject.FindGameObjectWithTag("GlowDoor"), 5, new Vector3(1.229f, 1.229f, 1.229f)));
+        }
+
+        if (GameObject.FindGameObjectWithTag("GlowDoor").transform.localScale == new Vector3(1.229f, 1.229f, 1.229f))
+            glowDoor.GetComponent<AlwaysGlow>().glow = true;
+
+        if (glowDoor.GetComponent<AlwaysGlow>().glow == true && Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Pause(youWin);
+        }
+
+        if (youWin.activeSelf == true && Input.GetKeyDown(KeyCode.X))
+            Application.Quit();
     }
 
     public void Resume(GameObject ui)

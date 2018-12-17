@@ -93,7 +93,7 @@ public class MagicTarget : MonoBehaviour
             if (corout[0] == true)
             {
                 StartCoroutine(MoveAnim(rune1, 2, lerpVec[0]));
-                //rune1.transform.GetChild(0).GetComponent<AudioSource>().Play();
+                rune1.transform.GetChild(0).GetComponent<AudioSource>().Play();
             }
             corout[0] = false;
 

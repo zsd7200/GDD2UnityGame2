@@ -41,10 +41,11 @@ public class AlwaysGlow : MonoBehaviour
                 _materials[i].SetColor("_GlowColor", _targetColor);//Set the glow color
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (Input.GetKeyDown(KeyCode.Mouse1) && _targetColor != Color.black)
             {
                 PuzzleManager.artifactCount++;
-                gameObject.SetActive(false);
+                gameObject.transform.localScale = Vector3.zero;
+                //_targetColor = Color.black;
             }
         }
     }

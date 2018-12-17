@@ -139,8 +139,8 @@ public class DresdenController : MonoBehaviour
 
         GUI.skin.textField.fontSize = 30;
         GUI.skin.textField.padding = new RectOffset(10, 0, 10, 0);
+        GUI.skin.textField.alignment = TextAnchor.UpperLeft;
         scoreText = GUI.TextField(new Rect(10, 10, 280, 55), scoreText);
-
         timeText = GUI.TextField(new Rect(Screen.width - 105, 10, 95, 55), timeText);
     }
 }

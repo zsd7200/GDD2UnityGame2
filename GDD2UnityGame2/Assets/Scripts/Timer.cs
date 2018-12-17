@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        timeRemaining = 1800.0f; //30 minutes (30x60)
+        timeRemaining = 1200; //20 minutes (20x60)
 	}
 
     // Update is called once per frame
@@ -21,6 +21,11 @@ public class Timer : MonoBehaviour {
         timeRemaining -= Time.deltaTime;
         secondsRemaining = (int)(timeRemaining % 60); //Find the number of seconds remaining
         minRemaining = (int)(timeRemaining / 60);//Find the number of minutes remaining
+
+        if (secondsRemaining <= 0 && minRemaining <= 0)
+        {
+            formattedTime = "0:00";
+        }
 
         if (secondsRemaining < 10)
             formattedTime = minRemaining + ":0" + secondsRemaining;
