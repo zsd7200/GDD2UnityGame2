@@ -10,6 +10,7 @@ public class MagicTarget : MonoBehaviour
     public GameObject rune3;
     public GameObject rune4;
     public GameObject rune5;
+    public GameObject dresdenModel;
     private Vector3 v,vv,vvv;
     bool[] corout = new bool[5];
 
@@ -42,7 +43,16 @@ public class MagicTarget : MonoBehaviour
             case (TargetType.Lumen):
                 if(dresden.IsHolding(PickupType.Photo)) //Dresden is holding photo
                 {
+                    if (reflect == false)
+                    {
+                        //reference1.SetActive(true);
+                        reflect = true;
 
+                        if (dresdenModel.activeSelf == true)
+                            dresdenModel.SetActive(false);
+                        else
+                            dresdenModel.SetActive(true);
+                    }
                 }
                 break;
                 //crack
@@ -136,7 +146,7 @@ public class MagicTarget : MonoBehaviour
         vv.z = -22f;
 
         vvv = rune3.transform.position;
-        vvv.z = 8f;
+        vvv.z = 2f;
 
         for (int i = 0; i < corout.Length; i++)
         {
