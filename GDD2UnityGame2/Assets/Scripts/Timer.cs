@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour {
     float timeRemaining; //Actual Time left in seconds
     int minRemaining; //minutes remaining
     int secondsRemaining; //Rounded up
-    static string formatedTime; //String to hold time
+    public static string formattedTime; //String to hold time
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +20,8 @@ public class Timer : MonoBehaviour {
         secondsRemaining = (int)(timeRemaining % 60); //Find the number of seconds remaining
         minRemaining = (int)(timeRemaining / 60);//Find the number of minutes remaining
 
-        formatedTime = minRemaining + ":" + secondsRemaining; //Formatted time
-        Debug.Log(formatedTime);
+        formattedTime = minRemaining + ":" + secondsRemaining; //Formatted time
+        Debug.Log(formattedTime);
 
     }
 }
