@@ -67,7 +67,11 @@ public class MagicTarget : MonoBehaviour
         if (hole == true)
         {
             if (corout == true)
+            {
                 StartCoroutine(MoveAnim(rune1, 2, v));
+                rune1.transform.GetChild(0).GetComponent<AudioSource>().Play();
+            }
+                
 
             corout = false;
 
@@ -95,7 +99,7 @@ public class MagicTarget : MonoBehaviour
     // movement animation
     private IEnumerator MoveAnim(GameObject obj, float delay, Vector3 newPos)
     {
-        Debug.Log("move");
+       
 
         float currTime = 0;
         Vector3 start = obj.transform.position;
