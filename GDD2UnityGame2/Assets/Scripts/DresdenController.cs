@@ -8,8 +8,8 @@ public class DresdenController : MonoBehaviour
 {
     public static Transform Dresden;
     //Reference items
-    const KeyCode FlickumKey = KeyCode.E;
-    const KeyCode MagicKey = KeyCode.F;
+    const KeyCode FlickumKey = KeyCode.Mouse0;
+    const KeyCode MagicKey = KeyCode.Mouse0;
     public const float interactDist = 5f; //Maximum pickup distance
     [SerializeField] Texture2D crosshair; // crosshair image
     [SerializeField] GameObject selfLight;

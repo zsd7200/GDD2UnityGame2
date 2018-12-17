@@ -11,8 +11,8 @@ public class MagicTarget : MonoBehaviour
     public GameObject rune4;
     public GameObject rune5;
     public GameObject dresdenModel;
-    private Vector3 v,vv,vvv,vvvv;
-    bool[] corout = new bool[5];
+    private Vector3[] lerpVec = new Vector3[4];
+    bool[] corout = new bool[4];
 
     public TargetType type;
     [SerializeField] GameObject reference1; //Used during activation
@@ -54,6 +54,12 @@ public class MagicTarget : MonoBehaviour
                         else
                             dresdenModel.SetActive(true);
                     }
+
+                    else if (dresdenModel.activeSelf == true)
+                        dresdenModel.SetActive(false);
+                    else
+                        dresdenModel.SetActive(true);
+
                 }
                 break;
                 //crack
@@ -86,7 +92,7 @@ public class MagicTarget : MonoBehaviour
         {
             if (corout[0] == true)
             {
-                StartCoroutine(MoveAnim(rune1, 2, v));
+                StartCoroutine(MoveAnim(rune1, 2, lerpVec[0]));
                 //rune1.transform.GetChild(0).GetComponent<AudioSource>().Play();
             }
             corout[0] = false;
@@ -100,7 +106,7 @@ public class MagicTarget : MonoBehaviour
         {
             if (corout[1] == true)
             {
-                StartCoroutine(MoveAnim(rune2, 2, vv));
+                StartCoroutine(MoveAnim(rune2, 2, lerpVec[1]));
                 rune2.transform.GetChild(0).GetComponent<AudioSource>().Play();
             }
 
@@ -115,7 +121,7 @@ public class MagicTarget : MonoBehaviour
         {
             if (corout[2] == true)
             {
-                StartCoroutine(MoveAnim(rune3, 2, vvv));
+                StartCoroutine(MoveAnim(rune3, 2, lerpVec[2]));
                 rune3.transform.GetChild(0).GetComponent<AudioSource>().Play();
             }
 
@@ -130,7 +136,7 @@ public class MagicTarget : MonoBehaviour
         {
             if (corout[3] == true)
             {
-                StartCoroutine(MoveAnim(rune4, 2, vvvv));
+                StartCoroutine(MoveAnim(rune4, 2, lerpVec[3]));
                 rune4.transform.GetChild(0).GetComponent<AudioSource>().Play();
             }
 
@@ -152,17 +158,17 @@ public class MagicTarget : MonoBehaviour
         rune4 = GameObject.FindGameObjectWithTag("rune4");
         rune5 = GameObject.FindGameObjectWithTag("rune5");
 
-        v = rune1.transform.position;
-        v.y = 2f;
+        lerpVec[0] = rune1.transform.position;
+        lerpVec[0].y = 2f;
 
-        vv = rune2.transform.position;
-        vv.z = -22f;
+        lerpVec[1] = rune2.transform.position;
+        lerpVec[1].z = -22f;
 
-        vvv = rune3.transform.position;
-        vvv.z = 2f;
+        lerpVec[2] = rune3.transform.position;
+        lerpVec[2].z = 2f;
 
-        vvvv = rune4.transform.position;
-        vvvv.x = -22.7f;
+        lerpVec[3] = rune4.transform.position;
+        lerpVec[3].x = -22.7f;
 
         for (int i = 0; i < corout.Length; i++)
         {
