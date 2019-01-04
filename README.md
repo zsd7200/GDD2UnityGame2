@@ -2,7 +2,7 @@
 Second game for Game Design and Development 2 developed in Unity 2018.2.1f1 (which is the version on lab computers).
 [Download Final Build from here](https://drive.google.com/file/d/1axTj0l1CAvVtCLMWbQfy61QcdVfVWpBc/view?usp=sharing).
 
-![Screenshot](link "Screenshot taken from 1.0 release.")
+![Screenshot](https://raw.githubusercontent.com/zsd7200/GDD2UnityGame2/master/screenshot.png?token=ABSa1MCfGVPLAJucUv69kAYqBQnFb6O5ks5cOQQ_wA%3D%3D "Screenshot taken from 1.0 release.")
 
 #### Description
 A requirement of this project was to create this game within the [world of The Dresden Files](http://www.jim-butcher.com/books/dresden), originally written by Jim Butcher.
