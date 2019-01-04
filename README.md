@@ -18,3 +18,42 @@ Harry Dresden’s latest case is a suspected imposter within the White Council. 
 
 #### Win Condition
 If the player collects all four runes, a message appears on screen, telling them how to escape.
+
+#### Credits
+Created by [Zack Dunham](https://github.com/zsd7200), [Patrick Hosman](https://github.com/pjh9488), [Robert Piwko](https://github.com/Peekz1025), [Nathan Terrell](https://github.com/nat7611), and [Nick Visconti](https://github.com/nickvisc956).
+
+Fan by [Jake Sullivan](https://assetstore.unity.com/packages/3d/props/interior/old-office-props-free-53735)
+
+Piano by [Miroslav Uhlíř](https://assetstore.unity.com/packages/3d/props/interior/piano-154)
+
+Clock by [Webcadabra](https://assetstore.unity.com/packages/3d/props/interior/clock-free-44164)
+
+Worn Bookshelf by [Jason Wong](https://assetstore.unity.com/packages/3d/props/interior/worn-bookshelf-8458)
+
+Rug by [Azerilo](https://assetstore.unity.com/packages/3d/props/interior/free-rug-pack-118178)
+
+Golden Dragon Statue by [3dFoin](https://assetstore.unity.com/packages/3d/props/interior/golden-dragon-statue-63132)
+
+Old Radio by [IL.ranch](https://assetstore.unity.com/packages/3d/props/interior/old-radio-alpinist-72991)
+
+Books by [Vis Games](https://assetstore.unity.com/packages/3d/props/interior/books-3356)
+
+Mirror by [Digital Ruby/Jeff Johnson](https://assetstore.unity.com/packages/tools/particles-effects/magic-mirror-lite-reflection-for-unity-34824)
+
+Fireplace by [3DeLucas](https://assetstore.unity.com/packages/3d/props/furniture/medieval-tavern-pack-112546)
+
+Dresden Model by RIT Students
+
+Crosshair from [FreePik.com](https://freepik.com/)
+
+Menu Art by Unknown
+
+"Romantic" from [BenSound.com](https://www.bensound.com/royalty-free-music/track/romantic)
+
+"Hand" from [DaFont.com](https://www.dafont.com/hand.font)
+
+"King" from [DaFont.com](https://www.dafont.com/king.font)
+
+Veteran Typewriter by [Magique Fonts](https://www.dafont.com/veteran-typewriter.font)
+
+Thanks to [Broxxar, for his Glowing Outlines code](https://github.com/Broxxar/GlowingObjectOutlines)
