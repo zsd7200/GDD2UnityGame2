@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1299,8 +1299,13 @@ MonoBehaviour:
     he found himself trapped! Use your quick wit and magic to escape!
 
 
-    Use WASD to move and press E to interact with objects.
+    Use WASD to move.
 
+    Interact with highlighted objects using left-click.
+
+    Collect artifacts using right-click.
+
+    Drop items using middle-click.
 
     Press Escape to pause.'
   m_isRightToLeft: 0
@@ -1348,7 +1353,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 198
+  m_firstOverflowCharacterIndex: 212
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1371,12 +1376,12 @@ MonoBehaviour:
   m_margin: {x: 1.1534134, y: 0.3520076, z: 1.1096909, w: -0.20816481}
   m_textInfo:
     textComponent: {fileID: 325482441}
-    characterCount: 220
+    characterCount: 302
     spriteCount: 0
-    spaceCount: 37
-    wordCount: 36
+    spaceCount: 43
+    wordCount: 43
     linkCount: 0
-    lineCount: 8
+    lineCount: 10
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -1454,14 +1459,14 @@ RectTransform:
   m_GameObject: {fileID: 325482440}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
-  m_LocalScale: {x: 0.05644939, y: 0.1712305, z: 1}
+  m_LocalScale: {x: 0.056449395, y: 0.13406847, z: 1}
   m_Children: []
   m_Father: {fileID: 1141697169}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0014676843, y: 0.04295747}
+  m_AnchoredPosition: {x: -0.0014676843, y: 0.033634428}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &335135959
@@ -4946,7 +4951,7 @@ Transform:
   m_GameObject: {fileID: 1141697165}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.248, y: -5.69, z: -177.59985}
-  m_LocalScale: {x: 850.31915, y: 280.32388, z: 48}
+  m_LocalScale: {x: 850.31915, y: 358.02612, z: 48}
   m_Children:
   - {fileID: 325482445}
   m_Father: {fileID: 1192928661}
